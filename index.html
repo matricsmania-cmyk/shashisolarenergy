@@ -130,6 +130,29 @@
       font-weight: 700;
       cursor: pointer;
       transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after,
+    .solar-calc-btn::after {
+      content: "";
+      position: absolute;
+      top: -120%;
+      left: -42%;
+      width: 24%;
+      height: 320%;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.42), rgba(255,255,255,0));
+      transform: rotate(18deg);
+      opacity: 0;
+      transition: left .5s ease, opacity .3s ease;
+      pointer-events: none;
+    }
+
+    .btn:hover::after,
+    .solar-calc-btn:hover::after {
+      left: 130%;
+      opacity: 1;
     }
 
     .btn-primary {
@@ -161,6 +184,7 @@
       background: radial-gradient(circle, rgba(31, 107, 255, 0.18), rgba(31, 107, 255, 0));
       top: -150px;
       right: -130px;
+      animation: orbFloatA 12s ease-in-out infinite;
     }
 
     .hero::after {
@@ -169,6 +193,7 @@
       background: radial-gradient(circle, rgba(15, 78, 197, 0.16), rgba(15, 78, 197, 0));
       bottom: -150px;
       left: -120px;
+      animation: orbFloatB 15s ease-in-out infinite;
     }
 
     .hero-grid {
@@ -833,6 +858,91 @@
       margin: 0.7rem 0 0.9rem;
     }
 
+    .motion-reveal {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0) scale(0.985);
+      filter: blur(6px);
+      transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .motion-reveal.from-left {
+      transform: translate3d(-38px, 0, 0) scale(0.985);
+    }
+
+    .motion-reveal.from-right {
+      transform: translate3d(38px, 0, 0) scale(0.985);
+    }
+
+    .motion-reveal.in-view {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .motion-depth {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .motion-depth:hover {
+      box-shadow: 0 22px 44px rgba(16, 49, 104, 0.2);
+    }
+
+    .motion-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 300;
+      pointer-events: none;
+      transform-origin: left center;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, #ffd54d 0%, #1f6bff 55%, #0f4ec5 100%);
+      box-shadow: 0 0 14px rgba(31, 107, 255, 0.45);
+    }
+
+    .float-soft {
+      animation: floatSoft 5.6s ease-in-out infinite;
+    }
+
+    .float-gentle {
+      animation: floatGentle 7s ease-in-out infinite;
+    }
+
+    .float-drift {
+      animation: floatDrift 8.2s ease-in-out infinite;
+    }
+
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes floatGentle {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(0, -7px, 0); }
+    }
+
+    @keyframes floatDrift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      35% { transform: translate3d(6px, -8px, 0); }
+      70% { transform: translate3d(-4px, -4px, 0); }
+    }
+
+    @keyframes orbFloatA {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-16px, -12px, 0) scale(1.04); }
+    }
+
+    @keyframes orbFloatB {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      45% { transform: translate3d(14px, -10px, 0) scale(1.03); }
+      75% { transform: translate3d(-8px, -6px, 0) scale(1.01); }
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .testimonial,
@@ -886,6 +996,14 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; }
+      .float-soft,
+      .float-gentle,
+      .float-drift {
+        animation: none !important;
+      }
+      .motion-reveal {
+        filter: none !important;
+      }
     }
   </style>
 </head>
@@ -1141,7 +1259,7 @@
         <article class="contact-info">
           <h3>Get In Touch</h3>
           <p>Send us your details and we will prepare your custom solar estimate within one business day.</p>
-          <p><strong>Phone:</strong> (+91) 98765 43210</p>
+          <p><strong>Phone:</strong> +91 9194258475</p>
           <p><strong>Email:</strong> shashisolarenergyofficial@gmail.com</p>
           <p><strong>Office:</strong> No. 58A, Green Energy Avenue</p>
         </article>
@@ -1451,7 +1569,97 @@
       render(false);
     })();
   </script>
+  <script>
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      const addClass = (selector, className) => {
+        document.querySelectorAll(selector).forEach((el) => el.classList.add(className));
+      };
+
+      addClass('.hero-card', 'float-soft');
+      addClass('.solar-calc-stat', 'float-gentle');
+      addClass('.video-card', 'float-drift');
+      addClass('.card, .step, .solar-result-card, .solar-calc-panel, .contact-info, .form-wrap, .quote-card', 'motion-depth');
+
+      const revealGroups = [
+        ['.hero h1, .hero p, .hero-actions', 'from-left'],
+        ['.hero-card, .hero .mini-stats', 'from-right'],
+        ['.mini-stats .item', ''],
+        ['#solar-calculator .solar-calc-head > div:first-child, #solar-calculator .solar-calc-stat', ''],
+        ['#solar-calculator .solar-calc-panel', ''],
+        ['#services .section-title, #services .card', ''],
+        ['.about-strip .fact', 'from-left'],
+        ['#process .section-title, #process .step', ''],
+        ['.testimonial .video-card, .testimonial .quote-card', ''],
+        ['#contact .contact-info, #contact .form-wrap', ''],
+        ['.footer-brand, .footer-col', '']
+      ];
+
+      const revealEls = [];
+      revealGroups.forEach(([selector, sideClass]) => {
+        document.querySelectorAll(selector).forEach((el, index) => {
+          if (!el.classList.contains('motion-reveal')) {
+            el.classList.add('motion-reveal');
+            if (sideClass) el.classList.add(sideClass);
+            el.style.setProperty('--reveal-delay', Math.min(index * 80, 520) + 'ms');
+            revealEls.push(el);
+          }
+        });
+      });
+
+      const progress = document.createElement('div');
+      progress.className = 'motion-progress';
+      document.body.appendChild(progress);
+      let progressTicking = false;
+      const updateProgress = () => {
+        const doc = document.documentElement;
+        const max = Math.max(doc.scrollHeight - window.innerHeight, 1);
+        const pct = Math.max(0, Math.min(window.scrollY / max, 1));
+        progress.style.transform = 'scaleX(' + pct + ')';
+        progressTicking = false;
+      };
+      const onScroll = () => {
+        if (progressTicking) return;
+        progressTicking = true;
+        requestAnimationFrame(updateProgress);
+      };
+      updateProgress();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        revealEls.forEach((el) => el.classList.add('in-view'));
+        progress.style.display = 'none';
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+      revealEls.forEach((el) => observer.observe(el));
+
+      if (!finePointer) return;
+
+      document.querySelectorAll('.motion-depth').forEach((el) => {
+        el.addEventListener('pointermove', (event) => {
+          const rect = el.getBoundingClientRect();
+          const px = (event.clientX - rect.left) / rect.width;
+          const py = (event.clientY - rect.top) / rect.height;
+          const rx = (0.5 - py) * 5.5;
+          const ry = (px - 0.5) * 6;
+          const tz = 8;
+          el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateZ(' + tz + 'px)';
+        });
+        el.addEventListener('pointerleave', () => {
+          el.style.transform = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
-
-
