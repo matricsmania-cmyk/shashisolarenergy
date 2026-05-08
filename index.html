@@ -312,27 +312,42 @@
       background: #fff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 1.2rem;
+      padding: 0;
       transition: .22s ease;
+      overflow: hidden;
     }
 
     .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 
-    .icon {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      background: var(--surface-soft);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      margin-bottom: 0.72rem;
-      font-weight: 800;
-      color: var(--primary-dark);
+    .card-media {
+      position: relative;
     }
 
-    .card h3 { color: #143f80; margin-bottom: 0.34rem; }
-    .card p { color: var(--muted); font-size: 0.93rem; }
+    .card-media img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-tag {
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.9rem;
+      background: #c9df86;
+      color: #19310a;
+      border-radius: 10px;
+      padding: 0.36rem 0.7rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .card-body {
+      padding: 1rem 1rem 1.05rem;
+    }
+
+    .card h3 { color: #143f80; margin-bottom: 0.34rem; font-size: 1.35rem; line-height: 1.2; }
+    .card p { color: var(--muted); font-size: 0.97rem; }
 
     .about-strip {
       background: linear-gradient(120deg, #0f4ec5, #1f6bff);
@@ -349,35 +364,105 @@
     .about-strip span { color: #dce8ff; font-size: 0.89rem; }
 
     .process {
-      background: #fff;
+      background: linear-gradient(180deg, #f7faff 0%, #edf4ff 100%);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
+    .process .section-title .eyebrow {
+      background: transparent;
+      border: 0;
+      color: #2f5eaa;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.7rem;
+      position: relative;
+      padding: 0;
+    }
+
+    .process .section-title .eyebrow::before,
+    .process .section-title .eyebrow::after {
+      content: "";
+      display: inline-block;
+      width: 62px;
+      height: 1px;
+      background: #aac7ff;
+      vertical-align: middle;
+      margin: 0 0.55rem;
+    }
+
     .timeline {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 0.9rem;
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      gap: 1rem;
+      align-items: start;
     }
 
     .step {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .step::after {
+      content: "\\279C";
+      position: absolute;
+      right: -0.7rem;
+      top: 4.7rem;
+      color: #9cb9ef;
+      font-size: 2.1rem;
+      line-height: 1;
+    }
+
+    .step:last-child::after {
+      content: none;
+    }
+
+    .step-photo {
+      width: 164px;
+      height: 164px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      position: relative;
+      border: 10px solid #ffffff;
+      box-shadow: 0 12px 28px rgba(31, 107, 255, 0.18);
+      overflow: visible;
+    }
+
+    .step-photo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
     }
 
     .num {
-      width: 34px;
-      height: 34px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
+      background: #ffd54d;
+      color: #1b3f7d;
       display: grid;
       place-items: center;
-      font-weight: 700;
-      font-size: 0.84rem;
-      margin-bottom: 0.72rem;
+      font-weight: 800;
+      font-size: 1.1rem;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      border: 4px solid #ffffff;
+    }
+
+    .step h3 {
+      font-size: 1.95rem;
+      color: #133f80;
+      margin-bottom: 0.45rem;
+    }
+
+    .step p {
+      color: #4f6e96;
+      font-size: 1.02rem;
+      max-width: 260px;
+      margin: 0 auto;
     }
 
     .testimonial {
@@ -949,6 +1034,8 @@
       .contact-grid { grid-template-columns: 1fr; }
 
       .about-strip { grid-template-columns: repeat(2, 1fr); }
+      .timeline { grid-template-columns: repeat(2, minmax(210px, 1fr)); row-gap: 2.2rem; }
+      .step::after { content: none; }
 
       .mini-stats { max-width: 100%; }
 
@@ -1053,6 +1140,34 @@
 
       .hero-card p {
         font-size: 0.92rem;
+      }
+
+      .process .section-title .eyebrow {
+        font-size: 0.88rem;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+        row-gap: 1.7rem;
+      }
+
+      .step-photo {
+        width: 132px;
+        height: 132px;
+      }
+
+      .num {
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
+      }
+
+      .step h3 {
+        font-size: 1.08rem;
+      }
+
+      .step p {
+        font-size: 0.94rem;
       }
 
       section {
@@ -1318,24 +1433,34 @@
 
         <div class="service-grid">
           <article class="card">
-            <div class="icon">01</div>
-            <h3>Rooftop Solar</h3>
-            <p>Efficient rooftop panel setups for homes, apartments, and villas with long-term savings.</p>
+            <div class="card-media">
+              <img src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="On grid solar system on rooftop" />
+              <span class="service-tag">Service 01</span>
+            </div>
+            <div class="card-body">
+              <h3>On Grid Solar System</h3>
+              <p>Efficient grid-connected solar systems for homes and businesses to reduce electricity bills.</p>
+            </div>
           </article>
           <article class="card">
-            <div class="icon">02</div>
-            <h3>Solar EV Chargers</h3>
-            <p>Charge your EV with clean power through integrated smart charging solutions.</p>
+            <div class="card-media">
+              <img src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hybrid solar system with battery backup" />
+              <span class="service-tag">Service 02</span>
+            </div>
+            <div class="card-body">
+              <h3>Hybrid Solar System</h3>
+              <p>Reliable hybrid setups with battery backup for day and night power availability.</p>
+            </div>
           </article>
           <article class="card">
-            <div class="icon">03</div>
-            <h3>Industrial Solar</h3>
-            <p>Scalable energy systems for factories and facilities with monitoring and analytics.</p>
-          </article>
-          <article class="card">
-            <div class="icon">04</div>
-            <h3>Maintenance & Support</h3>
-            <p>Routine inspections, cleaning, diagnostics, and 24/7 support for consistent performance.</p>
+            <div class="card-media">
+              <img src="https://www.sunrisesolarent.com/assets/img/Attachakki.jpg" alt="Solar atta chakki machine with solar panels" />
+              <span class="service-tag">Service 03</span>
+            </div>
+            <div class="card-body">
+              <h3>Solar Atta Chakki</h3>
+              <p>Solar-powered flour mill solutions designed for rural and small business operations.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -1355,14 +1480,43 @@
     <section class="process" id="process">
       <div class="container">
         <div class="section-title">
+          <span class="eyebrow">End-To-End Services</span>
           <h2>The Solar Journey</h2>
           <p>Simple, transparent, and efficient from the first consultation to final activation.</p>
         </div>
         <div class="timeline">
-          <article class="step"><div class="num">01</div><h3>Site Assessment</h3><p>We evaluate roof strength, sunlight exposure, and usage pattern.</p></article>
-          <article class="step"><div class="num">02</div><h3>Proposal & Savings Plan</h3><p>Detailed quote with system sizing, subsidy details, and expected ROI.</p></article>
-          <article class="step"><div class="num">03</div><h3>Installation</h3><p>Certified team installs panels, inverters, wiring, and safety systems.</p></article>
-          <article class="step"><div class="num">04</div><h3>Activation & Monitoring</h3><p>Net meter setup, testing, and real-time app tracking to monitor output.</p></article>
+          <article class="step">
+            <div class="step-photo">
+              <img src="https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar team doing site assessment" />
+              <div class="num">01</div>
+            </div>
+            <h3>Site Assessment</h3>
+            <p>We inspect your roof, energy usage, and sunlight profile to design the right system.</p>
+          </article>
+          <article class="step">
+            <div class="step-photo">
+              <img src="https://images.pexels.com/photos/9875423/pexels-photo-9875423.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar project agreement planning" />
+              <div class="num">02</div>
+            </div>
+            <h3>Agreement</h3>
+            <p>Clear proposal, project timeline, and budget finalization before execution starts.</p>
+          </article>
+          <article class="step">
+            <div class="step-photo">
+              <img src="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar panel installation work" />
+              <div class="num">03</div>
+            </div>
+            <h3>Installation</h3>
+            <p>Our certified technicians install panels, inverter, and electrical safety components.</p>
+          </article>
+          <article class="step">
+            <div class="step-photo">
+              <img src="https://images.pexels.com/photos/8961135/pexels-photo-8961135.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Engineer checking solar quality and performance" />
+              <div class="num">04</div>
+            </div>
+            <h3>Quality Assurance</h3>
+            <p>Final testing, commissioning, and performance verification for reliable generation.</p>
+          </article>
         </div>
       </div>
     </section>
