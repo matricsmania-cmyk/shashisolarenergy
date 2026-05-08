@@ -167,6 +167,30 @@
       color: #ffffff;
     }
 
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: 1px solid rgba(220, 232, 255, 0.35);
+      background: rgba(255, 255, 255, 0.08);
+      color: #eaf1ff;
+      font-size: 1.5rem;
+      line-height: 1;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .mobile-menu-btn:focus-visible {
+      outline: 2px solid #ffd54d;
+      outline-offset: 2px;
+    }
+
+    .mobile-drawer {
+      display: none;
+    }
+
     .btn {
       border: 0;
       text-decoration: none;
@@ -1115,15 +1139,20 @@
 
     @media (max-width: 760px) {
       .topbar .container {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         text-align: center;
-        gap: 0.55rem;
+        justify-content: center;
+        gap: 0.5rem;
       }
 
       .topbar-left,
       .topbar-right {
         justify-content: center;
+      }
+
+      .topbar-left {
+        display: none;
       }
 
       .topbar .pipe {
@@ -1132,15 +1161,17 @@
 
       .nav-wrap {
         min-height: auto;
-        padding: 0.8rem 0 1rem;
+        padding: 0.7rem 0;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 0.8rem;
+        justify-content: space-between;
+        gap: 0.55rem;
+        position: relative;
       }
 
       .logo {
-        gap: 0.55rem;
+        gap: 0.45rem;
       }
 
       .logo img {
@@ -1150,23 +1181,133 @@
       }
 
       .logo-text {
-        font-size: 1.06rem;
+        font-size: 0.95rem;
       }
 
       .menu {
-        width: 100%;
-        justify-content: center;
-        gap: 0.35rem;
-        order: 2;
+        display: none;
       }
 
-      .menu a {
-        padding: 0.4rem 0.62rem;
-        font-size: 0.9rem;
+      body.mobile-menu-active {
+        overflow: hidden;
+      }
+
+      .mobile-drawer {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 120;
+        pointer-events: none;
+      }
+
+      .mobile-drawer-overlay {
+        position: absolute;
+        inset: 0;
+        border: 0;
+        width: 100%;
+        background: rgba(15, 63, 150, 0.24);
+        backdrop-filter: blur(7px);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .mobile-drawer-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: min(58vw, 325px);
+        min-width: 245px;
+        height: 100%;
+        background: #ffffff;
+        box-shadow: -18px 0 42px rgba(2, 10, 22, 0.36);
+        transform: translateX(100%);
+        transition: transform 0.22s ease-out;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .mobile-drawer-head {
+        height: 64px;
+        border-bottom: 1px solid #dbe6fa;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 0.8rem;
+        background: #ffffff;
+      }
+
+      .mobile-drawer-close {
+        border: 0;
+        background: transparent;
+        color: #10243d;
+        font-size: 2rem;
+        line-height: 1;
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+      }
+
+      .mobile-drawer-menu {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .mobile-drawer-menu a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 54px;
+        padding: 0.88rem 1.05rem;
+        border-bottom: 1px solid #e4ecfb;
+        color: #10243d;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .mobile-drawer-menu a::after {
+        content: ">";
+        color: #10243d;
+        font-size: 1.35rem;
+        line-height: 1;
+      }
+
+      .mobile-drawer-menu li:first-child a {
+        background: #000000;
+        color: #ffffff;
+      }
+
+      .mobile-drawer-menu li:first-child a::after {
+        color: #ffffff;
+      }
+
+      .mobile-drawer-menu a:hover {
+        background: #f4f8ff;
+        color: #0f3f96;
+      }
+
+      body.mobile-menu-active .mobile-drawer {
+        pointer-events: auto;
+      }
+
+      body.mobile-menu-active .mobile-drawer-overlay {
+        opacity: 1;
+      }
+
+      body.mobile-menu-active .mobile-drawer-panel {
+        transform: translateX(0);
       }
 
       .nav-wrap > .btn {
-        order: 3;
+        width: auto;
+        max-width: none;
+        padding: 0.66rem 0.92rem;
+        font-size: 0.95rem;
+      }
+
+      .mobile-menu-btn {
+        display: inline-flex;
       }
 
       .hero {
@@ -1195,21 +1336,34 @@
 
       .hero-actions .btn,
       .hero-content .btn {
-        width: 100%;
+        width: auto;
+      }
+
+      .hero-features {
+        order: 2;
+        display: flex;
+        gap: 0.7rem;
+        overflow-x: auto;
+        background: rgba(5, 16, 30, 0.92);
+        border: 1px solid rgba(220, 232, 255, 0.18);
+        border-radius: 12px;
+        padding: 0.55rem 0.7rem;
       }
 
       .hero-feature {
-        grid-template-columns: 34px 1fr;
-        gap: 0.72rem;
-        padding: 0.72rem 0;
+        border: 0;
+        min-width: 230px;
+        grid-template-columns: 30px 1fr;
+        gap: 0.62rem;
+        padding: 0.2rem 0.1rem;
       }
 
       .hero-feature h4 {
-        font-size: 1.08rem;
+        font-size: 0.98rem;
       }
 
       .hero-feature p {
-        font-size: 0.88rem;
+        font-size: 0.82rem;
       }
 
       .process .section-title .eyebrow {
@@ -1306,6 +1460,98 @@
       }
     }
 
+    @media (max-width: 480px) {
+      .container {
+        width: 94%;
+      }
+
+      .topbar {
+        font-size: 0.78rem;
+      }
+
+      .topbar-right strong {
+        display: inline;
+      }
+
+      .logo img {
+        width: 44px;
+        height: 44px;
+      }
+
+      .logo-text {
+        font-size: 0.88rem;
+      }
+
+      .nav-wrap > .btn {
+        font-size: 0.86rem;
+        padding: 0.58rem 0.78rem;
+      }
+
+      .mobile-drawer-panel {
+        width: 52vw;
+        min-width: 235px;
+      }
+
+      .hero {
+        padding: 2.2rem 0 2.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.85rem;
+        line-height: 1.18;
+      }
+
+      .hero p {
+        font-size: 0.93rem;
+      }
+
+      .hero-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-feature {
+        grid-template-columns: 30px 1fr;
+        gap: 0.56rem;
+      }
+
+      .hero-feature-icon {
+        font-size: 1.2rem;
+      }
+
+      .hero-feature h4 {
+        font-size: 1rem;
+      }
+
+      .hero-feature p {
+        font-size: 0.82rem;
+      }
+
+      .card h3 {
+        font-size: 1.15rem;
+      }
+
+      .step p {
+        font-size: 0.9rem;
+      }
+
+      .solar-calc-head h2 {
+        font-size: 1.6rem;
+      }
+
+      .solar-calc-panel {
+        padding: 0.85rem;
+      }
+
+      .solar-calc-btn {
+        font-size: 0.88rem;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; }
@@ -1327,7 +1573,7 @@
         <div class="topbar">
           <div class="container">
             <div class="topbar-left">
-              <span></span>
+              <span>No. 58A, Green Energy Avenue</span>
               <span class="pipe">|</span>
               <span>shashisolarenergyofficial@gmail.com</span>
             </div>
@@ -1355,8 +1601,23 @@
               <li><a href="contact.html">Contact</a></li>
             </ul>
             <a class="btn btn-primary" href="contact.html">Get Quotes</a>
+            <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
           </div>
         </nav>
+        <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+          <button class="mobile-drawer-overlay" type="button" aria-label="Close menu"></button>
+          <aside class="mobile-drawer-panel" role="dialog" aria-label="Mobile menu">
+            <div class="mobile-drawer-head">
+              <button class="mobile-drawer-close" type="button" aria-label="Close menu">&times;</button>
+            </div>
+            <ul class="mobile-drawer-menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="service.html">Services</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </aside>
+        </div>
       </header>
 
       <section class="hero" id="home">
@@ -1636,7 +1897,7 @@
         <article class="contact-info">
           <h3>Get In Touch</h3>
           <p>Send us your details and we will prepare your custom solar estimate within one business day.</p>
-          <p><strong>Phone:</strong> +91 9194258475</p>
+          <p><strong>Phone:</strong> +91 9194258575</p>
           <p><strong>Email:</strong> shashisolarenergyofficial@gmail.com</p>
           <p><strong>Office:</strong></p>
         </article>
@@ -1697,7 +1958,7 @@
 
     <div class="container footer-bottom">
       <p>&copy; 2026 Shashi Solar Energy. All rights reserved.</p>
-      <p>Phone: +91 9194258475 | Email: shashisolarenergyofficial@gmail.com</p>
+      <p>Phone: +91 9194258575 | Email: shashisolarenergyofficial@gmail.com</p>
     </div>
   </footer>
   <script>
@@ -1948,6 +2209,51 @@
   </script>
   <script>
     (function () {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileDrawer = document.querySelector('#mobileDrawer');
+      const mobileDrawerOverlay = document.querySelector('.mobile-drawer-overlay');
+      const mobileDrawerClose = document.querySelector('.mobile-drawer-close');
+      const mobileMenuLinks = document.querySelectorAll('.mobile-drawer-menu a');
+
+      if (mobileMenuBtn && mobileDrawer) {
+        const openMobileMenu = () => {
+          document.body.classList.add('mobile-menu-active');
+          mobileDrawer.setAttribute('aria-hidden', 'false');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        };
+
+        const closeMobileMenu = () => {
+          document.body.classList.remove('mobile-menu-active');
+          mobileDrawer.setAttribute('aria-hidden', 'true');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        };
+
+        mobileMenuBtn.addEventListener('click', () => {
+          if (document.body.classList.contains('mobile-menu-active')) closeMobileMenu();
+          else openMobileMenu();
+        });
+
+        if (mobileDrawerOverlay) {
+          mobileDrawerOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileDrawerClose) {
+          mobileDrawerClose.addEventListener('click', closeMobileMenu);
+        }
+
+        mobileMenuLinks.forEach((link) => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+
+        window.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMobileMenu();
+        });
+
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 760) closeMobileMenu();
+        });
+      }
+
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
       const addClass = (selector, className) => {
