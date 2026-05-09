@@ -669,18 +669,6 @@
       margin-bottom: 0.4rem;
     }
 
-    .location-card h3 a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .location-card h3 a:hover {
-      color: #2a63d6;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-thickness: 2px;
-    }
-
     .location-card p {
       color: #5677a3;
       font-size: 0.95rem;
@@ -694,7 +682,7 @@
       margin-bottom: 0.8rem;
     }
 
-    .location-cities a {
+    .location-cities span {
       display: inline-flex;
       align-items: center;
       border: 1px solid #cfe0ff;
@@ -705,14 +693,6 @@
       font-weight: 700;
       padding: 0.18rem 0.52rem;
       line-height: 1.2;
-      text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .location-cities a:hover {
-      background: #d6e9ff;
-      color: #1a4a90;
-      border-color: #b8d0ff;
     }
 
     .location-points {
@@ -1960,80 +1940,6 @@
       background: #edf5ff;
       color: #103b79;
     }
-
-    .floating-contact-wrap {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 14px;
-      pointer-events: none;
-      z-index: 130;
-    }
-
-    .floating-contact-pill {
-      pointer-events: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      color: #ffffff !important;
-      text-decoration: none;
-      border: 1px solid rgba(170, 214, 255, 0.46);
-      box-shadow: 0 12px 26px rgba(11, 35, 76, 0.28);
-      backdrop-filter: blur(6px);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-    }
-
-    .floating-contact-pill svg {
-      width: 27px;
-      height: 27px;
-      display: block;
-      flex: 0 0 auto;
-      color: #ffffff !important;
-      fill: #ffffff !important;
-      overflow: visible;
-    }
-
-    .floating-contact-pill svg path {
-      fill: #ffffff !important;
-    }
-
-    .floating-contact-pill:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(8, 28, 61, 0.34);
-      filter: saturate(1.06);
-    }
-
-    .floating-whatsapp {
-      background: linear-gradient(135deg, #1ea959 0%, #128c41 100%);
-    }
-
-    .floating-call {
-      background: linear-gradient(135deg, #2f74ef 0%, #1b4fae 100%);
-    }
-
-    @media (max-width: 760px) {
-      .floating-contact-wrap {
-        bottom: 12px;
-        padding: 0 10px;
-      }
-
-      .floating-contact-pill {
-        width: 56px;
-        height: 56px;
-      }
-
-      .floating-contact-pill svg {
-        width: 26px;
-        height: 26px;
-      }
-    }
   </style>
   <link rel='stylesheet' href='theme-premium.css' />
 </head>
@@ -2128,7 +2034,7 @@
 
           <div class="hero-content">
             <span class="eyebrow">Eco-Friendly Energy</span>
-            <h1>Solar Company in Varanasi</h1>
+            <h1>Solar Company in Jharkhand</h1>
             <p>Shashi Solar Energy delivers high-performance systems, custom installation, and reliable after-sales support for homes and businesses.</p>
             <div class="hero-actions">
               <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
@@ -2356,12 +2262,12 @@
         </div>
         <div class="location-grid">
           <article class="location-card">
-            <h3><a href="solar-company-in-uttar-pradesh.html">Uttar Pradesh</a></h3>
+            <h3>Uttar Pradesh</h3>
             <p>Trusted solar company services for homes, shops, schools, and commercial projects in key UP cities.</p>
             <div class="location-cities">
-              <a href="solar-company-in-uttar-pradesh.html">Varanasi</a>
-              <a href="solar-company-in-uttar-pradesh.html">Lucknow</a>
-              <a href="solar-company-in-uttar-pradesh.html">Prayagraj</a>
+              <span>Varanasi</span>
+              <span>Lucknow</span>
+              <span>Prayagraj</span>
             </div>
             <ul class="location-points">
               <li>Rooftop solar design with realistic generation planning.</li>
@@ -2369,16 +2275,16 @@
               <li>Fast installation and local after-sales technical service.</li>
             </ul>
             <div class="location-card-action">
-              <a class="btn btn-primary" href="solar-company-in-uttar-pradesh.html">Book Now</a>
+              <a class="btn btn-primary" href="#contact">Book Now</a>
             </div>
           </article>
           <article class="location-card">
-            <h3><a href="solar-company-in-bihar.html">Bihar</a></h3>
+            <h3>Bihar</h3>
             <p>Customized solar setups for urban and semi-urban properties with practical savings-first recommendations.</p>
             <div class="location-cities">
-              <a href="solar-company-in-bihar.html">Patna</a>
-              <a href="solar-company-in-bihar.html">Gaya</a>
-              <a href="solar-company-in-bihar.html">Muzaffarpur</a>
+              <span>Patna</span>
+              <span>Gaya</span>
+              <span>Muzaffarpur</span>
             </div>
             <ul class="location-points">
               <li>Detailed load analysis for stable long-term system performance.</li>
@@ -2386,16 +2292,16 @@
               <li>Installation quality checks with performance verification.</li>
             </ul>
             <div class="location-card-action">
-              <a class="btn btn-primary" href="solar-company-in-bihar.html">Book Now</a>
+              <a class="btn btn-primary" href="#contact">Book Now</a>
             </div>
           </article>
           <article class="location-card">
-            <h3><a href="solar-company-in-jharkhand.html">Jharkhand</a></h3>
+            <h3>Jharkhand</h3>
             <p>Complete solar installation and maintenance support for households and growing businesses in Jharkhand.</p>
             <div class="location-cities">
-              <a href="solar-company-in-jharkhand.html">Ranchi</a>
-              <a href="solar-company-in-jharkhand.html">Jamshedpur</a>
-              <a href="solar-company-in-jharkhand.html">Dhanbad</a>
+              <span>Ranchi</span>
+              <span>Jamshedpur</span>
+              <span>Dhanbad</span>
             </div>
             <ul class="location-points">
               <li>Optimized rooftop layouts for better output in local weather.</li>
@@ -2403,7 +2309,7 @@
               <li>Responsive service support and preventive maintenance planning.</li>
             </ul>
             <div class="location-card-action">
-              <a class="btn btn-primary" href="solar-company-in-jharkhand.html">Book Now</a>
+              <a class="btn btn-primary" href="#contact">Book Now</a>
             </div>
           </article>
         </div>
@@ -2504,26 +2410,6 @@
       <p>Phone: +91 9194258575 | Email: shashisolarenergyofficial@gmail.com</p>
     </div>
   </footer>
-
-  <div class="floating-contact-wrap" aria-label="Quick contact actions">
-    <a
-      class="floating-contact-pill floating-whatsapp"
-      href="https://wa.me/9194258575?text=Hi%20Shashi%20Solar%20Energy%2C%20I%20want%20a%20solar%20quotation."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
-    >
-      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <path d="M16.02 3.2c-6.96 0-12.62 5.58-12.62 12.45 0 2.18.58 4.31 1.68 6.19l-1.78 6.49 6.7-1.73a12.78 12.78 0 0 0 6.02 1.51c6.96 0 12.62-5.58 12.62-12.45S22.98 3.2 16.02 3.2Zm0 22.79c-1.92 0-3.8-.52-5.44-1.5l-.39-.23-3.97 1.03 1.06-3.84-.25-.4a10.2 10.2 0 0 1-1.55-5.4c0-5.69 4.73-10.33 10.54-10.33s10.54 4.63 10.54 10.33-4.73 10.34-10.54 10.34Zm5.78-7.74c-.32-.16-1.88-.91-2.17-1.01-.29-.11-.5-.16-.71.16-.21.31-.81 1-.99 1.21-.18.21-.36.24-.68.08-.32-.16-1.34-.49-2.55-1.55-.94-.83-1.58-1.86-1.76-2.17-.18-.31-.02-.48.14-.64.14-.14.32-.36.47-.54.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.71-1.69-.97-2.31-.26-.6-.52-.52-.71-.53h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.06-1.1 2.59s1.13 3.01 1.29 3.22c.16.21 2.22 3.35 5.37 4.7.75.32 1.34.51 1.79.66.75.24 1.44.21 1.98.13.6-.09 1.88-.76 2.14-1.49.26-.73.26-1.36.18-1.49-.08-.13-.29-.21-.61-.36Z" />
-      </svg>
-    </a>
-    <a class="floating-contact-pill floating-call" href="tel:+9194258575" aria-label="Call now">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.3-.3.75-.39 1.14-.26 1.25.41 2.61.64 3.95.64.61 0 1.1.49 1.1 1.1v3.48c0 .61-.49 1.1-1.1 1.1C10.68 21.24 2.76 13.32 2.76 3.5c0-.61.49-1.1 1.1-1.1h3.49c.61 0 1.1.49 1.1 1.1 0 1.38.22 2.7.64 3.96.12.38.03.82-.27 1.13l-2.2 2.2Z" />
-      </svg>
-    </a>
-  </div>
-
   <script>
     (function () {
       const section = document.getElementById('solar-calculator');
