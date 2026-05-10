@@ -2138,6 +2138,337 @@
       text-transform: uppercase;
     }
 
+    .about-mission {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 28%, rgba(47, 116, 239, 0.16), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(120, 189, 255, 0.28), transparent 28%),
+        linear-gradient(180deg, #eef6ff 0%, #f8fbff 52%, #eaf3ff 100%);
+    }
+
+    .about-mission::before {
+      content: "";
+      position: absolute;
+      inset: 12% -10% auto -10%;
+      height: 220px;
+      background: linear-gradient(90deg, transparent, rgba(42, 99, 214, 0.12), transparent);
+      transform: rotate(-3deg);
+      pointer-events: none;
+    }
+
+    .about-mission .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-mission .section-title {
+      margin-bottom: clamp(2.4rem, 5vw, 3.6rem);
+    }
+
+    .mission-flow {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1.2rem, 3vw, 2.4rem);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .mission-flow::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 38px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(42, 99, 214, 0.32) 18%, rgba(26, 79, 158, 0.7) 50%, rgba(42, 99, 214, 0.32) 82%, transparent 100%);
+      box-shadow: 0 0 20px rgba(42, 99, 214, 0.22);
+    }
+
+    .mission-point {
+      position: relative;
+      padding-top: 5.7rem;
+      text-align: center;
+    }
+
+    .mission-point:nth-child(2) {
+      transform: translateY(1rem);
+    }
+
+    .mission-point::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #102f68 0%, #2a63d6 100%);
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      box-shadow: 0 18px 34px rgba(18, 55, 117, 0.26);
+      transform: translateX(-50%);
+    }
+
+    .mission-point::after {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      transform: translateX(-50%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .mission-point h3 {
+      color: #123a7a;
+      font-size: clamp(1.45rem, 2.6vw, 2rem);
+      line-height: 1.08;
+      margin-bottom: 0.68rem;
+      letter-spacing: -0.02em;
+    }
+
+    .mission-point p {
+      color: #55739f;
+      line-height: 1.78;
+      font-size: 1rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .what-we-do {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(125, 189, 255, 0.22), transparent 30%),
+        linear-gradient(180deg, #f9fcff 0%, #edf6ff 100%);
+      border-top: 1px solid rgba(188, 213, 255, 0.55);
+      border-bottom: 1px solid rgba(188, 213, 255, 0.55);
+    }
+
+    .what-we-do::before {
+      content: "";
+      position: absolute;
+      inset: auto -6% -140px auto;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(42, 99, 214, 0.16), rgba(42, 99, 214, 0));
+      pointer-events: none;
+    }
+
+    .what-do-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: clamp(1rem, 2.8vw, 2.1rem);
+      align-items: start;
+    }
+
+    .what-do-intro {
+      position: sticky;
+      top: 92px;
+      background: linear-gradient(145deg, #1a4f9e 0%, #2a63d6 100%);
+      color: #ffffff;
+      padding: clamp(1.2rem, 2.8vw, 2rem);
+      border-radius: 20px;
+      box-shadow: 0 18px 38px rgba(18, 58, 122, 0.24);
+      border: 1px solid rgba(193, 218, 255, 0.35);
+    }
+
+    .what-do-intro h3 {
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      line-height: 1.12;
+      margin-bottom: 0.68rem;
+      letter-spacing: -0.02em;
+    }
+
+    .what-do-intro p {
+      color: #e4efff;
+      font-size: 0.99rem;
+      line-height: 1.75;
+      margin-bottom: 0.84rem;
+    }
+
+    .what-do-intro .btn {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(224, 238, 255, 0.5);
+      color: #ffffff;
+    }
+
+    .what-do-intro .btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+      box-shadow: none;
+    }
+
+    .what-do-list {
+      position: relative;
+      display: grid;
+      gap: 1.15rem;
+      padding-left: 1.45rem;
+    }
+
+    .what-do-list::before {
+      content: "";
+      position: absolute;
+      left: 0.2rem;
+      top: 0.55rem;
+      bottom: 0.55rem;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(26, 79, 158, 0.7), rgba(42, 99, 214, 0.22));
+    }
+
+    .what-do-item {
+      position: relative;
+      padding: 0 0.15rem 0.35rem 1.1rem;
+    }
+
+    .what-do-item::before {
+      content: attr(data-step);
+      position: absolute;
+      left: -1.46rem;
+      top: 0.1rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      background: linear-gradient(140deg, #1a4f9e, #2f74ef);
+      box-shadow: 0 10px 22px rgba(20, 58, 122, 0.24);
+    }
+
+    .what-do-item h3 {
+      font-size: clamp(1.2rem, 2vw, 1.58rem);
+      color: #113b79;
+      margin-bottom: 0.35rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .what-do-item p {
+      color: #5878a3;
+      font-size: 0.98rem;
+      line-height: 1.73;
+      max-width: 620px;
+    }
+
+    .what-do-links {
+      margin-top: 0.62rem;
+      display: inline-flex;
+      gap: 0.48rem;
+      flex-wrap: wrap;
+    }
+
+    .what-do-links a {
+      border-radius: 999px;
+      border: 1px solid #c8ddff;
+      background: #e9f2ff;
+      color: #1c519a;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.24rem 0.62rem;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .what-do-links a:hover {
+      background: #d6e8ff;
+      border-color: #aecdff;
+      color: #123b7a;
+    }
+
+    .mission-team {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(123, 188, 255, 0.16), transparent 36%),
+        radial-gradient(circle at 86% 14%, rgba(42, 99, 214, 0.12), transparent 30%),
+        linear-gradient(180deg, #f7fbff 0%, #edf6ff 100%);
+    }
+
+    .mission-team::before {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: -56px;
+      height: 140px;
+      background: linear-gradient(90deg, rgba(42, 99, 214, 0.06), rgba(42, 99, 214, 0.18), rgba(42, 99, 214, 0.06));
+      border-radius: 50%;
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .mission-team .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1rem, 2.4vw, 1.8rem);
+      margin-top: 0.6rem;
+    }
+
+    .team-member {
+      text-align: center;
+      padding: 0.7rem 0.45rem 0.8rem;
+    }
+
+    .team-photo-wrap {
+      width: clamp(168px, 22vw, 218px);
+      height: clamp(168px, 22vw, 218px);
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, #2a63d6, #7dbdff);
+      box-shadow: 0 16px 34px rgba(20, 58, 122, 0.2);
+    }
+
+    .team-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 28%;
+      border: 3px solid #ffffff;
+      display: block;
+      background: #f0f6ff;
+    }
+
+    .team-member-founder .team-photo-wrap img {
+      object-position: center 14%;
+    }
+
+    .team-member h3 {
+      font-size: clamp(1.26rem, 2.1vw, 1.72rem);
+      color: #153c78;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .team-member p {
+      color: #2f70c5;
+      font-size: 0.96rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
     @media (max-width: 760px) {
       .floating-contact-wrap {
         bottom: 12px;
@@ -2152,6 +2483,58 @@
       .floating-contact-pill svg {
         width: 26px;
         height: 26px;
+      }
+
+      .mission-flow {
+        grid-template-columns: 1fr;
+        gap: 2.35rem;
+        max-width: 520px;
+      }
+
+      .mission-flow::before {
+        left: 50%;
+        right: auto;
+        top: 34px;
+        bottom: 0;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(180deg, rgba(42, 99, 214, 0.58), rgba(42, 99, 214, 0.12), transparent);
+      }
+
+      .mission-point,
+      .mission-point:nth-child(2) {
+        transform: none;
+      }
+
+      .mission-point p {
+        max-width: 420px;
+      }
+
+      .what-do-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .what-do-intro {
+        position: static;
+        top: auto;
+      }
+
+      .what-do-list {
+        padding-left: 1.15rem;
+      }
+
+      .what-do-item::before {
+        left: -1.18rem;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.45rem;
+      }
+
+      .team-photo-wrap {
+        width: min(62vw, 220px);
+        height: min(62vw, 220px);
       }
     }
   </style>
@@ -2254,7 +2637,7 @@
             <p>We help homes, shops, schools, and businesses move to dependable solar power with practical engineering, transparent guidance, and long-term service support.</p>
             <div class="hero-actions">
               <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
-              <a href="on-grid-solar-system.html" class="btn btn-ghost">Our Services</a>
+              <a href="index.html" class="btn btn-ghost">Explore Solar Solutions</a>
             </div>
           </div>
         </div>
@@ -2310,24 +2693,104 @@
           <p>Our mission is to help families and businesses adopt clean energy with honest guidance, strong engineering, and dependable support after installation.</p>
         </div>
 
-        <div class="service-grid">
-          <article class="card">
-            <div class="card-body">
-              <h3>Clean Power Access</h3>
+        <div class="mission-flow">
+          <article class="mission-point" data-step="01">
+            <div class="mission-copy">
+              <h3>Solar Made Simple</h3>
               <p>We make rooftop solar easier to understand and easier to adopt for homes, shops, schools, and commercial users.</p>
             </div>
           </article>
-          <article class="card">
-            <div class="card-body">
-              <h3>Transparent Execution</h3>
+          <article class="mission-point" data-step="02">
+            <div class="mission-copy">
+              <h3>Clarity In Every Watt</h3>
               <p>Every project is planned with clear sizing, practical savings expectations, safe installation, and documentation guidance.</p>
             </div>
           </article>
-          <article class="card">
-            <div class="card-body">
-              <h3>Long-Term Support</h3>
+          <article class="mission-point" data-step="03">
+            <div class="mission-copy">
+              <h3>Support That Stays</h3>
               <p>We stay connected after commissioning with performance assistance, maintenance support, and customer-first service.</p>
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="what-we-do" id="what-we-do">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">What We Do</span>
+          <h2>Practical Solar Execution For Real Homes And Businesses</h2>
+          <p>From planning to performance support, we handle complete rooftop solar delivery with clear communication and engineering-first decisions.</p>
+        </div>
+        <div class="what-do-grid">
+          <article class="what-do-intro">
+            <h3>Built For Reliable Savings, Not Empty Promises</h3>
+            <p>Every project is designed around your actual usage pattern, roof condition, and long-term electricity goals, so your system keeps delivering value year after year.</p>
+            <a class="btn" href="contact.html">Talk To Our Team</a>
+          </article>
+
+          <div class="what-do-list">
+            <article class="what-do-item" data-step="01">
+              <h3>Custom Solar Planning</h3>
+              <p>We perform site assessment, load study, and system sizing so your installed capacity matches real-world demand and future growth plans.</p>
+            </article>
+
+            <article class="what-do-item" data-step="02">
+              <h3>End-To-End Installation</h3>
+              <p>Our team executes safe mounting, inverter integration, and quality checks with documented progress across each installation milestone.</p>
+            </article>
+
+            <article class="what-do-item" data-step="03">
+              <h3>Subsidy And Net-Metering Guidance</h3>
+              <p>We support documentation and process coordination to simplify approvals and help you move from proposal to energized system faster.</p>
+            </article>
+
+            <article class="what-do-item" data-step="04">
+              <h3>After-Sales Performance Support</h3>
+              <p>Post-installation assistance includes generation monitoring guidance, preventive maintenance advice, and response support whenever required.</p>
+              <div class="what-do-links">
+                <a href="on-grid-solar-system.html">On Grid</a>
+                <a href="hybrid-solar-system.html">Hybrid</a>
+                <a href="solar-atta-chakki.html">Solar Atta Chakki</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-team" id="mission-team">
+      <div class="container">
+        <div class="section-title">
+          <span class="eyebrow">Leadership Team</span>
+          <h2>The People Behind Our Mission</h2>
+          <p>Experienced leadership driving trusted solar adoption with practical execution and long-term customer commitment.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-member team-member-founder">
+            <div class="team-photo-wrap">
+              <img src="leadership team/founder.png" alt="Founder of Shashi Solar Energy" loading="lazy" />
+            </div>
+            <h3>Founder</h3>
+            <p>Vision & Strategy</p>
+          </article>
+
+          <article class="team-member team-member-cofounder">
+            <div class="team-photo-wrap">
+              <img src="leadership team/co-founder.png" alt="Co-Founder of Shashi Solar Energy" loading="lazy" />
+            </div>
+            <h3>Co-Founder</h3>
+            <p>Operations & Growth</p>
+          </article>
+
+          <article class="team-member team-member-ceo">
+            <div class="team-photo-wrap">
+              <img src="leadership team/ceo.png" alt="CEO of Shashi Solar Energy" loading="lazy" />
+            </div>
+            <h3>CEO</h3>
+            <p>Execution & Innovation</p>
           </article>
         </div>
       </div>
@@ -2602,6 +3065,9 @@
         ['.hero-features .hero-feature', 'from-left'],
         ['.hero-content .eyebrow, .hero h1, .hero p, .hero-actions', 'from-right'],
         ['#services .section-title, #services .card', ''],
+        ['#our-mission .section-title, #our-mission .mission-point', ''],
+        ['#what-we-do .section-title, #what-we-do .what-do-intro, #what-we-do .what-do-item', ''],
+        ['#mission-team .section-title, #mission-team .team-member', ''],
         ['.about-strip .fact', 'from-left'],
         ['#process .section-title, #process .step', ''],
         ['#locations .section-title, #locations .location-card, #locations .location-cta', ''],
