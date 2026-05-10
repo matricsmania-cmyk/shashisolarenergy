@@ -467,6 +467,18 @@
       gap: 0.95rem;
     }
 
+    .service-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: var(--radius);
+    }
+
+    .service-card-link:focus-visible {
+      outline: 3px solid #74a8ff;
+      outline-offset: 3px;
+    }
+
     .card {
       background: #fff;
       border: 1px solid var(--line);
@@ -673,6 +685,16 @@
       margin-bottom: 0.4rem;
     }
 
+    .location-card h3 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .location-card h3 a:hover {
+      color: #2a63d6;
+    }
+
     .location-card p {
       color: #5677a3;
       font-size: 0.95rem;
@@ -686,7 +708,8 @@
       margin-bottom: 0.8rem;
     }
 
-    .location-cities span {
+    .location-cities span,
+    .location-cities a {
       display: inline-flex;
       align-items: center;
       border: 1px solid #cfe0ff;
@@ -697,6 +720,14 @@
       font-weight: 700;
       padding: 0.18rem 0.52rem;
       line-height: 1.2;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .location-cities a:hover {
+      background: #dceaff;
+      border-color: #b8d0ff;
+      color: #1f4e90;
     }
 
     .up-location-links {
@@ -2279,7 +2310,7 @@
         </div>
 
         <div class="service-grid">
-          <article class="card">
+          <a class="card service-card-link" href="on-grid-solar-system.html" aria-label="Open On Grid Solar System service page">
             <div class="card-media">
               <img src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="On grid solar system on rooftop" />
               <span class="service-tag">Service 01</span>
@@ -2288,8 +2319,8 @@
               <h3>On Grid Solar System</h3>
               <p>Efficient grid-connected solar systems for homes and businesses to reduce electricity bills.</p>
             </div>
-          </article>
-          <article class="card">
+          </a>
+          <a class="card service-card-link" href="hybrid-solar-system.html" aria-label="Open Hybrid Solar System service page">
             <div class="card-media">
               <img src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hybrid solar system with battery backup" />
               <span class="service-tag">Service 02</span>
@@ -2298,8 +2329,8 @@
               <h3>Hybrid Solar System</h3>
               <p>Reliable hybrid setups with battery backup for day and night power availability.</p>
             </div>
-          </article>
-          <article class="card">
+          </a>
+          <a class="card service-card-link" href="solar-atta-chakki.html" aria-label="Open Solar Atta Chakki service page">
             <div class="card-media">
               <img src="https://www.sunrisesolarent.com/assets/img/Attachakki.jpg" alt="Solar atta chakki machine with solar panels" />
               <span class="service-tag">Service 03</span>
@@ -2308,7 +2339,7 @@
               <h3>Solar Atta Chakki</h3>
               <p>Solar-powered flour mill solutions designed for rural and small business operations.</p>
             </div>
-          </article>
+          </a>
         </div>
       </div>
     </section>
@@ -2368,27 +2399,27 @@
             <h3>Jharkhand Service Areas</h3>
             <p>Trusted rooftop and commercial solar services available in these Jharkhand locations:</p>
             <div class="up-location-links">
-              <a class="up-location-link tone-1" href="#contact" data-city="Ranchi">
+              <a class="up-location-link tone-1" href="solar-company-in-ranchi.html" data-city="Ranchi">
                 <span class="up-location-label">Solar Company In Ranchi</span>
                 <span class="up-location-arrow">&#8594;</span>
               </a>
-              <a class="up-location-link tone-2" href="#contact" data-city="Jamshedpur">
+              <a class="up-location-link tone-2" href="solar-company-in-jamshedpur.html" data-city="Jamshedpur">
                 <span class="up-location-label">Solar Company In Jamshedpur</span>
                 <span class="up-location-arrow">&#8594;</span>
               </a>
-              <a class="up-location-link tone-3" href="#contact" data-city="Dhanbad">
+              <a class="up-location-link tone-3" href="solar-company-in-dhanbad.html" data-city="Dhanbad">
                 <span class="up-location-label">Solar Company In Dhanbad</span>
                 <span class="up-location-arrow">&#8594;</span>
               </a>
-              <a class="up-location-link tone-4" href="#contact" data-city="Bokaro">
+              <a class="up-location-link tone-4" href="solar-company-in-bokaro.html" data-city="Bokaro">
                 <span class="up-location-label">Solar Company In Bokaro</span>
                 <span class="up-location-arrow">&#8594;</span>
               </a>
-              <a class="up-location-link tone-1" href="#contact" data-city="Hazaribagh">
+              <a class="up-location-link tone-1" href="solar-company-in-hazaribagh.html" data-city="Hazaribagh">
                 <span class="up-location-label">Solar Company In Hazaribagh</span>
                 <span class="up-location-arrow">&#8594;</span>
               </a>
-              <a class="up-location-link tone-2" href="#contact" data-city="Deoghar">
+              <a class="up-location-link tone-2" href="solar-company-in-deoghar.html" data-city="Deoghar">
                 <span class="up-location-label">Solar Company In Deoghar</span>
                 <span class="up-location-arrow">&#8594;</span>
               </a>
@@ -2413,6 +2444,68 @@
             <a class="btn btn-ghost" href="contact.html">Book Free Site Survey</a>
             <a class="btn btn-primary" href="contact.html">Book Now</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-locations">
+      <div class="container">
+        <div class="section-title">
+          <h2>Solar Installation Services In Uttar Pradesh, Bihar And Jharkhand</h2>
+          <p>Shashi Solar Energy provides residential and commercial rooftop solar solutions with site survey, system design, subsidy support, and net-metering assistance across Uttar Pradesh, Bihar, and Jharkhand.</p>
+        </div>
+        <div class="location-grid">
+          <article class="location-card">
+            <h3><a href="solar-company-in-uttar-pradesh.html">Uttar Pradesh</a></h3>
+            <p>Trusted solar company services for homes, shops, schools, and commercial projects in key UP cities.</p>
+            <div class="location-cities">
+              <a href="index.html">Varanasi</a>
+              <a href="solar-company-in-azamgarh.html">Azamgarh</a>
+              <a href="solar-company-in-gorakhpur.html">Gorakhpur</a>
+            </div>
+            <ul class="location-points">
+              <li>Rooftop solar design with realistic generation planning.</li>
+              <li>Support for DISCOM documentation and net-metering process.</li>
+              <li>Fast installation and local after-sales technical service.</li>
+            </ul>
+            <div class="location-card-action">
+              <a class="btn btn-primary" href="contact.html">Book Now</a>
+            </div>
+          </article>
+          <article class="location-card">
+            <h3><a href="solar-company-in-bihar.html">Bihar</a></h3>
+            <p>Customized solar setups for urban and semi-urban properties with practical savings-first recommendations.</p>
+            <div class="location-cities">
+              <a href="solar-company-in-bihar.html">Patna</a>
+              <a href="solar-company-in-bihar.html">Gaya</a>
+              <a href="solar-company-in-bihar.html">Muzaffarpur</a>
+            </div>
+            <ul class="location-points">
+              <li>Detailed load analysis for stable long-term system performance.</li>
+              <li>Guidance for residential subsidy and finance-ready quotations.</li>
+              <li>Installation quality checks with performance verification.</li>
+            </ul>
+            <div class="location-card-action">
+              <a class="btn btn-primary" href="contact.html">Book Now</a>
+            </div>
+          </article>
+          <article class="location-card">
+            <h3><a href="solar-company-in-jharkhand.html">Jharkhand</a></h3>
+            <p>Complete solar installation and maintenance support for households and growing businesses in Jharkhand.</p>
+            <div class="location-cities">
+              <a href="solar-company-in-ranchi.html">Ranchi</a>
+              <a href="solar-company-in-jamshedpur.html">Jamshedpur</a>
+              <a href="solar-company-in-dhanbad.html">Dhanbad</a>
+            </div>
+            <ul class="location-points">
+              <li>Optimized rooftop layouts for better output in local weather.</li>
+              <li>On-grid and hybrid options based on your daily usage pattern.</li>
+              <li>Responsive service support and preventive maintenance planning.</li>
+            </ul>
+            <div class="location-card-action">
+              <a class="btn btn-primary" href="contact.html">Book Now</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -2906,6 +2999,7 @@
   <script src='theme-premium.js' defer></script>
 </body>
 </html>
+
 
 
 
