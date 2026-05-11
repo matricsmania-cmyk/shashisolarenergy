@@ -12,6 +12,15 @@
   <meta name="author" content="Shashi Solar Energy" />
   <meta name="theme-color" content="#123a7a" />
   <link rel="canonical" href="https://shashisolarenergy.com/about.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link rel="preconnect" href="https://www.sunrisesolarent.com" crossorigin />
+  <link rel="dns-prefetch" href="//images.pexels.com" />
+  <link rel="dns-prefetch" href="//www.sunrisesolarent.com" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" as="style" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="alternate" hreflang="en-IN" href="https://shashisolarenergy.com/about.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_IN" />
@@ -131,7 +140,7 @@
     }
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+    
 
     :root {
       --bg: #eef6ff;
@@ -453,7 +462,7 @@
       align-items: center;
       background:
         linear-gradient(110deg, rgba(6, 16, 31, 0.88) 5%, rgba(11, 29, 52, 0.72) 45%, rgba(13, 37, 72, 0.72) 100%),
-        url('https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=1800') center/cover no-repeat;
+        url('https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover no-repeat;
     }
 
     .hero::before {
@@ -2451,7 +2460,7 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: clamp(1rem, 2.4vw, 1.8rem);
       margin-top: 0.6rem;
     }
@@ -2685,7 +2694,7 @@
         <div class="service-grid">
           <a class="card service-card-link" href="on-grid-solar-system.html" aria-label="Open On Grid Solar System service page">
             <div class="card-media">
-              <img src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="On grid solar system on rooftop" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="On grid solar system on rooftop" />
               <span class="service-tag">Service 01</span>
             </div>
             <div class="card-body">
@@ -2695,7 +2704,7 @@
           </a>
           <a class="card service-card-link" href="hybrid-solar-system.html" aria-label="Open Hybrid Solar System service page">
             <div class="card-media">
-              <img src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hybrid solar system with battery backup" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hybrid solar system with battery backup" />
               <span class="service-tag">Service 02</span>
             </div>
             <div class="card-body">
@@ -2705,7 +2714,7 @@
           </a>
           <a class="card service-card-link" href="solar-atta-chakki.html" aria-label="Open Solar Atta Chakki service page">
             <div class="card-media">
-              <img src="https://www.sunrisesolarent.com/assets/img/Attachakki.jpg" alt="Solar atta chakki machine with solar panels" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://www.sunrisesolarent.com/assets/img/Attachakki.jpg" alt="Solar atta chakki machine with solar panels" />
               <span class="service-tag">Service 03</span>
             </div>
             <div class="card-body">
@@ -2803,18 +2812,18 @@
         <div class="team-grid">
           <article class="team-member team-member-founder">
             <div class="team-photo-wrap">
-              <img src="leadership team/founder.png" alt="Founder of Shashi Solar Energy" loading="lazy" />
+              <img src="leadership team/shashi-shrivastava.jpeg" alt="Shashi Shrivastava" loading="lazy" />
             </div>
-            <h3>Founder</h3>
-            <p>Vision & Strategy</p>
+            <h3>Shashi Shrivastava</h3>
+            <p>Founder</p>
           </article>
 
           <article class="team-member team-member-cofounder">
             <div class="team-photo-wrap">
-              <img src="leadership team/co-founder.png" alt="Co-Founder of Shashi Solar Energy" loading="lazy" />
+              <img src="leadership team/shri-prakash-shrivastava.jpeg" alt="Shri Prakash Shrivastava" loading="lazy" />
             </div>
-            <h3>Co-Founder</h3>
-            <p>Operations & Growth</p>
+            <h3>Shri Prakash Shrivastava</h3>
+            <p>Co-Founder</p>
           </article>
 
           <article class="team-member team-member-ceo">
@@ -2822,8 +2831,25 @@
               <img src="leadership team/ceo.png" alt="CEO of Shashi Solar Energy" loading="lazy" />
             </div>
             <h3>CEO</h3>
-            <p>Execution & Innovation</p>
+            <p>Leadership & Operations</p>
           </article>
+
+          <article class="team-member team-member-hr">
+            <div class="team-photo-wrap">
+              <img src="leadership team/arpita-shrivastava.jpeg" alt="Arpita Shrivastava" loading="lazy" />
+            </div>
+            <h3>Arpita Shrivastava</h3>
+            <p>HR & Admin</p>
+          </article>
+
+          <article class="team-member team-member-director">
+            <div class="team-photo-wrap">
+              <img src="leadership team/saket-shrivastava.jpeg" alt="Saket Shrivastava" loading="lazy" />
+            </div>
+            <h3>Saket Shrivastava</h3>
+            <p>Director (Dispatch and Site Engineer) Head</p>
+          </article>
+
         </div>
       </div>
     </section>
@@ -2838,7 +2864,7 @@
         <div class="timeline">
           <article class="step">
             <div class="step-photo">
-              <img src="https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar team doing site assessment" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar team doing site assessment" />
               <div class="num">01</div>
             </div>
             <h3>Site Assessment</h3>
@@ -2846,7 +2872,7 @@
           </article>
           <article class="step">
             <div class="step-photo">
-              <img src="https://images.pexels.com/photos/9875423/pexels-photo-9875423.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar project agreement planning" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/9875423/pexels-photo-9875423.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar project agreement planning" />
               <div class="num">02</div>
             </div>
             <h3>Agreement</h3>
@@ -2854,7 +2880,7 @@
           </article>
           <article class="step">
             <div class="step-photo">
-              <img src="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar panel installation work" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar panel installation work" />
               <div class="num">03</div>
             </div>
             <h3>Installation</h3>
@@ -2862,7 +2888,7 @@
           </article>
           <article class="step">
             <div class="step-photo">
-              <img src="https://images.pexels.com/photos/8961135/pexels-photo-8961135.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Engineer checking solar quality and performance" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/8961135/pexels-photo-8961135.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Engineer checking solar quality and performance" />
               <div class="num">04</div>
             </div>
             <h3>Quality Assurance</h3>

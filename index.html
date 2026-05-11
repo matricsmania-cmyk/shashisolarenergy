@@ -9,6 +9,15 @@
   <meta name="author" content="Shashi Solar Energy" />
   <meta name="theme-color" content="#123a7a" />
   <link rel="canonical" href="https://shashisolarenergy.com/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link rel="preconnect" href="https://www.sunrisesolarent.com" crossorigin />
+  <link rel="dns-prefetch" href="//images.pexels.com" />
+  <link rel="dns-prefetch" href="//www.sunrisesolarent.com" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" as="style" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" /></noscript>
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Solar Company in Varanasi | Shashi Solar Energy" />
   <meta property="og:description" content="Trusted solar company in Varanasi for rooftop solar, on-grid systems, hybrid solar, subsidy guidance, net metering and maintenance." />
@@ -99,7 +108,7 @@
     }
   </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+    
 
     :root {
       --bg: #eef6ff;
@@ -421,7 +430,7 @@
       align-items: center;
       background:
         linear-gradient(110deg, rgba(6, 16, 31, 0.88) 5%, rgba(11, 29, 52, 0.72) 45%, rgba(13, 37, 72, 0.72) 100%),
-        url('https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=1800') center/cover no-repeat;
+        url('https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover no-repeat;
     }
 
     .hero::before {
@@ -883,6 +892,107 @@
       align-items: center;
       gap: 0.52rem;
       flex-wrap: wrap;
+    }
+
+    .location-link-hub {
+      margin-top: 1rem;
+      border: 1px solid #cfe0ff;
+      border-radius: 22px;
+      padding: 1.15rem;
+      background: linear-gradient(145deg, #f7fbff 0%, #edf5ff 55%, #f8fbff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .location-link-hub::before,
+    .location-link-hub::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(1px);
+    }
+
+    .location-link-hub::before {
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at center, rgba(125, 189, 255, 0.26) 0%, rgba(125, 189, 255, 0) 70%);
+      top: -120px;
+      right: -80px;
+    }
+
+    .location-link-hub::after {
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at center, rgba(42, 99, 214, 0.18) 0%, rgba(42, 99, 214, 0) 72%);
+      left: -60px;
+      bottom: -90px;
+    }
+
+    .location-link-head {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 0.85rem;
+    }
+
+    .location-link-head h3 {
+      color: #173f83;
+      font-size: 1.35rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .location-link-head p {
+      color: #5071a1;
+      font-size: 0.95rem;
+      max-width: 760px;
+    }
+
+    .location-link-groups {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(230px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .location-link-group {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid #d5e5ff;
+      border-radius: 16px;
+      padding: 0.75rem 0.8rem 0.82rem;
+      backdrop-filter: blur(1px);
+    }
+
+    .location-link-group h4 {
+      color: #1a4f9e;
+      font-size: 1.02rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .location-link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+    }
+
+    .location-link-list a {
+      text-decoration: none;
+      color: #1d4f97;
+      background: #e7f1ff;
+      border: 1px solid #c9ddff;
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.81rem;
+      font-weight: 700;
+      line-height: 1.2;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .location-link-list a:hover {
+      background: #2a63d6;
+      color: #ffffff;
+      border-color: #2a63d6;
+      transform: translateY(-1px);
     }
 
     .testimonial {
@@ -1455,6 +1565,7 @@
       .about-strip { grid-template-columns: repeat(2, 1fr); }
       .timeline { grid-template-columns: repeat(2, minmax(210px, 1fr)); row-gap: 2.2rem; }
       .location-grid { grid-template-columns: repeat(2, minmax(210px, 1fr)); }
+      .location-link-groups { grid-template-columns: 1fr; }
       .step::after { content: none; }
       .hero-layout { grid-template-columns: 1fr; gap: 1.8rem; }
       .hero-features { max-width: 540px; margin: 0 auto; width: 100%; }
@@ -1728,6 +1839,14 @@
 
       .location-cta-actions .btn {
         width: 100%;
+      }
+
+      .location-link-hub {
+        padding: 0.92rem;
+      }
+
+      .location-link-head h3 {
+        font-size: 1.2rem;
       }
 
       .step-photo {
@@ -2289,6 +2408,8 @@
                   <option>Delhi</option>
                   <option>Haryana</option>
                   <option>Punjab</option>
+                  <option>Chhattisgarh</option>
+                  <option>Odisha</option>
                   <option>Other</option>
                 </select>
               </div>
@@ -2299,14 +2420,6 @@
               <div class="solar-calc-field">
                 <label for="solarLoad">Connected Load (kW)</label>
                 <input id="solarLoad" type="number" min="0" step="0.1" placeholder="Example: 5" />
-              </div>
-              <div class="solar-calc-field">
-                <label for="solarRate">Electricity Rate (&#8377;/unit)</label>
-                <input id="solarRate" type="number" min="1" step="0.1" value="8" />
-              </div>
-              <div class="solar-calc-field">
-                <label for="solarSun">Average Sunlight Hours</label>
-                <input id="solarSun" type="number" min="3" max="7" step="0.1" value="5" />
               </div>
             </div>
             <p class="solar-calc-note">Enter either monthly bill or connected load. If both are entered, monthly bill is used for the primary estimate.</p>
@@ -2369,7 +2482,7 @@
         <div class="service-grid">
           <a class="card service-card-link" href="on-grid-solar-system.html" aria-label="Open On Grid Solar System service page">
             <div class="card-media">
-              <img src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="On grid solar system on rooftop" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="On grid solar system on rooftop" />
               <span class="service-tag">Service 01</span>
             </div>
             <div class="card-body">
@@ -2379,7 +2492,7 @@
           </a>
           <a class="card service-card-link" href="hybrid-solar-system.html" aria-label="Open Hybrid Solar System service page">
             <div class="card-media">
-              <img src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hybrid solar system with battery backup" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hybrid solar system with battery backup" />
               <span class="service-tag">Service 02</span>
             </div>
             <div class="card-body">
@@ -2389,7 +2502,7 @@
           </a>
           <a class="card service-card-link" href="solar-atta-chakki.html" aria-label="Open Solar Atta Chakki service page">
             <div class="card-media">
-              <img src="https://www.sunrisesolarent.com/assets/img/Attachakki.jpg" alt="Solar atta chakki machine with solar panels" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://www.sunrisesolarent.com/assets/img/Attachakki.jpg" alt="Solar atta chakki machine with solar panels" />
               <span class="service-tag">Service 03</span>
             </div>
             <div class="card-body">
@@ -2411,7 +2524,7 @@
         <div class="timeline">
           <article class="step">
             <div class="step-photo">
-              <img src="https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar team doing site assessment" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar team doing site assessment" />
               <div class="num">01</div>
             </div>
             <h3>Site Assessment</h3>
@@ -2419,7 +2532,7 @@
           </article>
           <article class="step">
             <div class="step-photo">
-              <img src="https://images.pexels.com/photos/9875423/pexels-photo-9875423.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar project agreement planning" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/9875423/pexels-photo-9875423.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar project agreement planning" />
               <div class="num">02</div>
             </div>
             <h3>Agreement</h3>
@@ -2427,7 +2540,7 @@
           </article>
           <article class="step">
             <div class="step-photo">
-              <img src="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar panel installation work" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Solar panel installation work" />
               <div class="num">03</div>
             </div>
             <h3>Installation</h3>
@@ -2435,7 +2548,7 @@
           </article>
           <article class="step">
             <div class="step-photo">
-              <img src="https://images.pexels.com/photos/8961135/pexels-photo-8961135.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Engineer checking solar quality and performance" />
+              <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/8961135/pexels-photo-8961135.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Engineer checking solar quality and performance" />
               <div class="num">04</div>
             </div>
             <h3>Quality Assurance</h3>
@@ -2512,7 +2625,59 @@
           <div class="location-cta-actions">
             <a class="btn btn-primary" href="#solar-calculator">Check Savings</a>
             <a class="btn btn-ghost" href="contact.html">Book Free Site Survey</a>
+          </div>
+        </div>
+        <div class="location-link-hub" aria-label="All solar company location links">
+          <div class="location-link-head">
+            <h3>Explore Our Solar Service Map</h3>
+            <p>Find your city and open its dedicated solar company page with local service details, consultation support, and installation guidance.</p>
+          </div>
+          <div class="location-link-groups">
+            <article class="location-link-group">
+              <h4>State Service Pages</h4>
+              <div class="location-link-list">
+                <a href="solar-company-in-uttar-pradesh.html">Uttar Pradesh</a>
+                <a href="solar-company-in-bihar.html">Bihar</a>
+                <a href="solar-company-in-jharkhand.html">Jharkhand</a>
               </div>
+            </article>
+            <article class="location-link-group">
+              <h4>Uttar Pradesh Districts</h4>
+              <div class="location-link-list">
+                <a href="index.html">Varanasi</a>
+                <a href="solar-company-in-gorakhpur.html">Gorakhpur</a>
+                <a href="solar-company-in-azamgarh.html">Azamgarh</a>
+                <a href="solar-company-in-ballia.html">Ballia</a>
+                <a href="solar-company-in-jaunpur.html">Jaunpur</a>
+                <a href="solar-company-in-ghazipur.html">Ghazipur</a>
+                <a href="solar-company-in-mau.html">Mau</a>
+                <a href="solar-company-in-basti.html">Basti</a>
+              </div>
+            </article>
+            <article class="location-link-group">
+              <h4>Bihar Districts</h4>
+              <div class="location-link-list">
+                <a href="solar-company-in-bhabua.html">Bhabua</a>
+                <a href="solar-company-in-mohania.html">Mohania</a>
+                <a href="solar-company-in-durgauti.html">Durgauti</a>
+                <a href="solar-company-in-buxar.html">Buxar</a>
+                <a href="solar-company-in-dumraon.html">Dumraon</a>
+                <a href="solar-company-in-chhapra.html">Chhapra</a>
+                <a href="solar-company-in-revelganj.html">Revelganj</a>
+              </div>
+            </article>
+            <article class="location-link-group">
+              <h4>Jharkhand Districts</h4>
+              <div class="location-link-list">
+                <a href="solar-company-in-ranchi.html">Ranchi</a>
+                <a href="solar-company-in-jamshedpur.html">Jamshedpur</a>
+                <a href="solar-company-in-dhanbad.html">Dhanbad</a>
+                <a href="solar-company-in-bokaro.html">Bokaro</a>
+                <a href="solar-company-in-hazaribagh.html">Hazaribagh</a>
+                <a href="solar-company-in-deoghar.html">Deoghar</a>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -2644,8 +2809,8 @@
         const state = get('solarState').value;
         const bill = valueOf('solarBill', 0);
         const load = valueOf('solarLoad', 0);
-        const rate = valueOf('solarRate', type === 'commercial' ? 10 : 8);
-        const sunlight = valueOf('solarSun', 5);
+        const rate = type === 'commercial' ? 10 : 8;
+        const sunlight = 5;
         const efficiency = 0.82;
         const inflation = 0.04;
         const unitsPerKw = Math.min(150, Math.max(120, sunlight * 30 * efficiency));
@@ -2772,8 +2937,8 @@
         chartAnimationId = requestAnimationFrame(frame);
       }
 
-      function render(showLead) {
-        const data = calculate();
+      function render(showLead, dataOverride) {
+        const data = dataOverride || calculate();
         window.shashiSolarCalculatorData = data;
 
         get('solarResults').innerHTML = cards.map(([label, key, icon, type]) => {
@@ -2833,18 +2998,43 @@
         report.print();
       }
 
-      get('solarCalculateBtn').addEventListener('click', () => render(true));
+            get('solarCalculateBtn').addEventListener('click', () => {
+        render(true);
+        if (window.matchMedia('(max-width: 768px)').matches) {
+          const resultAnchor = get('solarResults');
+          if (resultAnchor) {
+            setTimeout(() => {
+              resultAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 80);
+          }
+        }
+      });
       get('solarReportBtn').addEventListener('click', printReport);
-      get('solarType').addEventListener('change', function () {
-        get('solarRate').value = this.value === 'commercial' ? '10' : '8';
-        render(false);
-      });
-      ['solarBill', 'solarLoad', 'solarRate', 'solarSun', 'solarState'].forEach((id) => {
-        get(id).addEventListener('input', () => render(false));
-        get(id).addEventListener('change', () => render(false));
-      });
 
-      render(false);
+      render(false, {
+        type: get('solarType').value,
+        state: get('solarState').value,
+        bill: 0,
+        load: 0,
+        rate: 0,
+        sunlight: 0,
+        inflation: 0,
+        monthlyUnits: 0,
+        unitsPerKw: 0,
+        sizeKw: 0,
+        monthlyGeneration: 0,
+        monthlySavings: 0,
+        annualSavings: 0,
+        savings25: 0,
+        installationCost: 0,
+        subsidy: 0,
+        netCost: 0,
+        paybackYears: 0,
+        co2Reduction: 0,
+        treesSaved: 0,
+        offset: 0,
+        emi: 0
+      });
     })();
   </script>
   <script>
