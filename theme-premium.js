@@ -50,3 +50,164 @@
 
   document.querySelectorAll('.premium-reveal').forEach((el) => observer.observe(el));
 })();
+
+(function siteLanguageSwitcher() {
+  const STORAGE_KEY = 'shashi_site_language';
+  const DEFAULT_LANG = 'hi';
+  const ORIGINAL_LANG = 'en';
+  const SUPPORTED_LANGS = new Set(['en', 'hi']);
+  const RETRY_LIMIT = 45;
+  const RETRY_DELAY_MS = 180;
+
+  let latestRequestedLang = null;
+
+  const readCookie = (name) => {
+    const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const match = document.cookie.match(new RegExp('(?:^|; )' + escaped + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : '';
+  };
+
+  const writeCookie = (name, value, domain) => {
+    const maxAge = 60 * 60 * 24 * 365;
+    const domainPart = domain ? ';domain=' + domain : '';
+    document.cookie = name + '=' + encodeURIComponent(value) + ';path=/;max-age=' + maxAge + ';SameSite=Lax' + domainPart;
+  };
+
+  const setGoogleTranslateCookie = (langCode) => {
+    const value = '/' + ORIGINAL_LANG + '/' + langCode;
+    writeCookie('googtrans', value, '');
+
+    const hostBase = window.location.hostname.replace(/^www\./, '');
+    if (hostBase && hostBase.includes('.')) {
+      writeCookie('googtrans', value, '.' + hostBase);
+    }
+  };
+
+  const getCookieLang = () => {
+    const raw = readCookie('googtrans');
+    if (!raw) return ORIGINAL_LANG;
+    const parts = raw.split('/');
+    const target = parts[2];
+    return SUPPORTED_LANGS.has(target) ? target : ORIGINAL_LANG;
+  };
+
+  const getSavedLang = () => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && SUPPORTED_LANGS.has(stored)) return stored;
+    localStorage.setItem(STORAGE_KEY, DEFAULT_LANG);
+    return DEFAULT_LANG;
+  };
+
+  const updateLanguageButtons = (langCode) => {
+    document.querySelectorAll('.site-language-btn').forEach((button) => {
+      const code = button.getAttribute('data-lang');
+      button.classList.toggle('is-active', code === langCode);
+    });
+  };
+
+  const triggerComboTranslate = (langCode, attempt) => {
+    if (latestRequestedLang !== langCode) return;
+
+    const combo = document.querySelector('select.goog-te-combo');
+    if (!combo) {
+      if (attempt < RETRY_LIMIT) {
+        window.setTimeout(() => triggerComboTranslate(langCode, attempt + 1), RETRY_DELAY_MS);
+      }
+      return true;
+    }
+
+    const nextValue = langCode === 'en' ? 'en' : 'hi';
+    if (combo.value !== nextValue) {
+      combo.value = nextValue;
+      combo.dispatchEvent(new Event('change', { bubbles: true }));
+      combo.dispatchEvent(new Event('input', { bubbles: true }));
+      if (window.jQuery) {
+        window.jQuery(combo).val(nextValue).trigger('change');
+      }
+    } else if (langCode !== getCookieLang()) {
+      combo.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    return true;
+  };
+
+  const applyLanguage = (langCode, persistChoice) => {
+    if (!SUPPORTED_LANGS.has(langCode)) return;
+
+    latestRequestedLang = langCode;
+    if (persistChoice) {
+      localStorage.setItem(STORAGE_KEY, langCode);
+    }
+    setGoogleTranslateCookie(langCode);
+    updateLanguageButtons(langCode);
+    triggerComboTranslate(langCode, 0);
+  };
+
+  const buildLanguageSwitcher = () => {
+    if (document.querySelector('.site-language-switcher')) return;
+
+    const wrap = document.createElement('aside');
+    wrap.className = 'site-language-switcher';
+    wrap.setAttribute('aria-label', 'Website language switcher');
+
+    wrap.innerHTML = [
+      '<span class="site-language-label">Language</span>',
+      '<div class="site-language-buttons">',
+      '<button type="button" class="site-language-btn" data-lang="hi" aria-label="Switch to Hindi">&#2361;&#2367;&#2306;&#2342;&#2368;</button>',
+      '<button type="button" class="site-language-btn" data-lang="en" aria-label="Switch to English">English</button>',
+      '</div>'
+    ].join('');
+
+    const savedLang = getSavedLang();
+    const buttons = wrap.querySelectorAll('.site-language-btn');
+    buttons.forEach((button) => {
+      const langCode = button.getAttribute('data-lang');
+      button.classList.toggle('is-active', langCode === savedLang);
+      button.addEventListener('click', () => {
+        if (langCode === getSavedLang()) return;
+        applyLanguage(langCode, true);
+      });
+    });
+
+    document.body.appendChild(wrap);
+  };
+
+  const mountGoogleTranslate = () => {
+    if (!document.getElementById('google_translate_element')) {
+      const container = document.createElement('div');
+      container.id = 'google_translate_element';
+      container.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(container);
+    }
+
+    window.googleTranslateElementInit = function () {
+      if (!window.google || !google.translate || !google.translate.TranslateElement) return;
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: ORIGINAL_LANG,
+          includedLanguages: 'en,hi',
+          autoDisplay: false
+        },
+        'google_translate_element'
+      );
+      window.setTimeout(() => {
+        applyLanguage(getSavedLang(), false);
+      }, 120);
+    };
+
+    if (document.getElementById('google-translate-script')) return;
+    const script = document.createElement('script');
+    script.id = 'google-translate-script';
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    script.defer = true;
+    script.onerror = () => {
+      updateLanguageButtons(getSavedLang());
+      console.warn('Google Translate script could not load.');
+    };
+    document.head.appendChild(script);
+  };
+
+  buildLanguageSwitcher();
+  setGoogleTranslateCookie(getSavedLang());
+  mountGoogleTranslate();
+})();
