@@ -53,11 +53,12 @@
 
 (function siteLanguageSwitcher() {
   const STORAGE_KEY = 'shashi_site_language';
+  const RELOAD_GUARD_KEY = 'shashi_translate_reload_guard';
   const DEFAULT_LANG = 'hi';
   const ORIGINAL_LANG = 'en';
   const SUPPORTED_LANGS = new Set(['en', 'hi']);
-  const RETRY_LIMIT = 45;
-  const RETRY_DELAY_MS = 180;
+  const RETRY_LIMIT = 12;
+  const RETRY_DELAY_MS = 120;
 
   let latestRequestedLang = null;
 
@@ -92,9 +93,11 @@
   };
 
   const getSavedLang = () => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && SUPPORTED_LANGS.has(stored)) return stored;
-    localStorage.setItem(STORAGE_KEY, DEFAULT_LANG);
+    // Always open website in Hindi on page load.
+    // Users can switch language manually, but each fresh page load starts in Hindi.
+    try {
+      localStorage.setItem(STORAGE_KEY, DEFAULT_LANG);
+    } catch (_err) {}
     return DEFAULT_LANG;
   };
 
@@ -105,6 +108,26 @@
     });
   };
 
+  const forceReloadForTranslate = (langCode) => {
+    try {
+      const marker = window.location.pathname + '|' + langCode;
+      const currentStamp = Date.now();
+      const raw = sessionStorage.getItem(RELOAD_GUARD_KEY);
+      if (raw) {
+        const parts = raw.split('::');
+        const prevMarker = parts[0];
+        const prevStamp = Number(parts[1] || 0);
+        if (prevMarker === marker && Number.isFinite(prevStamp) && currentStamp - prevStamp < 15000) {
+          return;
+        }
+      }
+      sessionStorage.setItem(RELOAD_GUARD_KEY, marker + '::' + currentStamp);
+      window.location.reload();
+    } catch (_err) {
+      window.location.reload();
+    }
+  };
+
   const triggerComboTranslate = (langCode, attempt) => {
     if (latestRequestedLang !== langCode) return;
 
@@ -112,8 +135,10 @@
     if (!combo) {
       if (attempt < RETRY_LIMIT) {
         window.setTimeout(() => triggerComboTranslate(langCode, attempt + 1), RETRY_DELAY_MS);
+      } else {
+        forceReloadForTranslate(langCode);
       }
-      return true;
+      return false;
     }
 
     const nextValue = langCode === 'en' ? 'en' : 'hi';
@@ -127,6 +152,9 @@
     } else if (langCode !== getCookieLang()) {
       combo.dispatchEvent(new Event('change', { bubbles: true }));
     }
+    try {
+      sessionStorage.removeItem(RELOAD_GUARD_KEY);
+    } catch (_err) {}
     return true;
   };
 
@@ -163,7 +191,7 @@
       const langCode = button.getAttribute('data-lang');
       button.classList.toggle('is-active', langCode === savedLang);
       button.addEventListener('click', () => {
-        if (langCode === getSavedLang()) return;
+        latestRequestedLang = langCode;
         applyLanguage(langCode, true);
       });
     });
