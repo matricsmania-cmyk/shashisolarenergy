@@ -1,41 +1,41 @@
-﻿# Shashi Solar Energy
+# Shashi Solar Energy
 > Official website of Shashi Solar Energy for rooftop solar, on-grid systems, hybrid systems, solar atta chakki, and location-wise services in North India.
 
-- Website: https://shashisolarenergy.com/
+- Website: https://www.shashisolarenergy.com/
 - Primary language: Hindi and English
 - Contact: +91 9194258575
 - Email: shashisolarenergyofficial@gmail.com
 
 ## Core Pages
-- Home: https://shashisolarenergy.com/
-- About: https://shashisolarenergy.com/about.html
-- Contact: https://shashisolarenergy.com/contact.html
-- Blog: https://shashisolarenergy.com/blog.html
+- Home: https://www.shashisolarenergy.com/
+- About: https://www.shashisolarenergy.com/about.html
+- Contact: https://www.shashisolarenergy.com/contact.html
+- Blog: https://www.shashisolarenergy.com/blog.html
 
 ## Core Services
-- On Grid Solar System: https://shashisolarenergy.com/on-grid-solar-system.html
-- Hybrid Solar System: https://shashisolarenergy.com/hybrid-solar-system.html
-- Solar Atta Chakki: https://shashisolarenergy.com/solar-atta-chakki.html
+- On Grid Solar System: https://www.shashisolarenergy.com/on-grid-solar-system.html
+- Hybrid Solar System: https://www.shashisolarenergy.com/hybrid-solar-system.html
+- Solar Atta Chakki: https://www.shashisolarenergy.com/solar-atta-chakki.html
 
 ## Service Location Pages
-- On Grid (Azamgarh): https://shashisolarenergy.com/on-grid-solar-system-azamgarh.html
-- On Grid (Ghazipur): https://shashisolarenergy.com/on-grid-solar-system-ghazipur.html
-- On Grid (Prayagraj): https://shashisolarenergy.com/on-grid-solar-system-prayagraj.html
-- Hybrid (Azamgarh): https://shashisolarenergy.com/hybrid-solar-system-azamgarh.html
-- Hybrid (Ghazipur): https://shashisolarenergy.com/hybrid-solar-system-ghazipur.html
-- Hybrid (Prayagraj): https://shashisolarenergy.com/hybrid-solar-system-prayagraj.html
-- Solar Atta Chakki (Azamgarh): https://shashisolarenergy.com/solar-atta-chakki-azamgarh.html
-- Solar Atta Chakki (Ghazipur): https://shashisolarenergy.com/solar-atta-chakki-ghazipur.html
-- Solar Atta Chakki (Prayagraj): https://shashisolarenergy.com/solar-atta-chakki-prayagraj.html
-- Solar Atta Chakki (Aurangabad): https://shashisolarenergy.com/solar-atta-chakki-aurangabad.html
-- Solar Atta Chakki (Basti): https://shashisolarenergy.com/solar-atta-chakki-basti.html
-- Solar Atta Chakki (Begusarai): https://shashisolarenergy.com/solar-atta-chakki-begusarai.html
-- Solar Atta Chakki (Buxar): https://shashisolarenergy.com/solar-atta-chakki-buxar.html
-- Solar Atta Chakki (East Champaran): https://shashisolarenergy.com/solar-atta-chakki-east-champaran.html
-- Solar Atta Chakki (Gaya): https://shashisolarenergy.com/solar-atta-chakki-gaya.html
-- Solar Atta Chakki (Kaimur): https://shashisolarenergy.com/solar-atta-chakki-kaimur.html
+- On Grid (Azamgarh): https://www.shashisolarenergy.com/on-grid-solar-system-azamgarh.html
+- On Grid (Ghazipur): https://www.shashisolarenergy.com/on-grid-solar-system-ghazipur.html
+- On Grid (Prayagraj): https://www.shashisolarenergy.com/on-grid-solar-system-prayagraj.html
+- Hybrid (Azamgarh): https://www.shashisolarenergy.com/hybrid-solar-system-azamgarh.html
+- Hybrid (Ghazipur): https://www.shashisolarenergy.com/hybrid-solar-system-ghazipur.html
+- Hybrid (Prayagraj): https://www.shashisolarenergy.com/hybrid-solar-system-prayagraj.html
+- Solar Atta Chakki (Azamgarh): https://www.shashisolarenergy.com/solar-atta-chakki-azamgarh.html
+- Solar Atta Chakki (Ghazipur): https://www.shashisolarenergy.com/solar-atta-chakki-ghazipur.html
+- Solar Atta Chakki (Prayagraj): https://www.shashisolarenergy.com/solar-atta-chakki-prayagraj.html
+- Solar Atta Chakki (Aurangabad): https://www.shashisolarenergy.com/solar-atta-chakki-aurangabad.html
+- Solar Atta Chakki (Basti): https://www.shashisolarenergy.com/solar-atta-chakki-basti.html
+- Solar Atta Chakki (Begusarai): https://www.shashisolarenergy.com/solar-atta-chakki-begusarai.html
+- Solar Atta Chakki (Buxar): https://www.shashisolarenergy.com/solar-atta-chakki-buxar.html
+- Solar Atta Chakki (East Champaran): https://www.shashisolarenergy.com/solar-atta-chakki-east-champaran.html
+- Solar Atta Chakki (Gaya): https://www.shashisolarenergy.com/solar-atta-chakki-gaya.html
+- Solar Atta Chakki (Kaimur): https://www.shashisolarenergy.com/solar-atta-chakki-kaimur.html
 
 ## Full Crawl Index
-- Sitemap: https://shashisolarenergy.com/sitemap.xml
-- Robots: https://shashisolarenergy.com/robots.txt
-- Full URL inventory: https://shashisolarenergy.com/llms-full.txt
+- Sitemap: https://www.shashisolarenergy.com/sitemap.xml
+- Robots: https://www.shashisolarenergy.com/robots.txt
+- Full URL inventory: https://www.shashisolarenergy.com/llms-full.txt
