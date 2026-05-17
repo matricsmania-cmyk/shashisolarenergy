@@ -999,45 +999,97 @@
     }
 
     .varanasi-guide {
-      background: linear-gradient(180deg, #ffffff 0%, #f6faff 100%);
+      background: #ffffff;
+      border-top: 1px solid #d6e6ff;
+      border-bottom: 1px solid #d6e6ff;
+      padding: 3.1rem 0;
+    }
+
+    .varanasi-guide .section-title {
+      text-align: left;
+      margin-bottom: 1.1rem;
+    }
+
+    .varanasi-guide .section-title h2 {
+      color: #163d79;
+      font-size: clamp(1.55rem, 3.1vw, 2.35rem);
+      line-height: 1.24;
     }
 
     .varanasi-guide .section-title p {
-      max-width: 900px;
+      max-width: 980px;
+      margin: 0;
+      color: #476894;
     }
 
     .varanasi-guide-content {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 1.2rem;
-      display: grid;
-      gap: 0.9rem;
-      box-shadow: 0 12px 30px rgba(16, 60, 132, 0.08);
+      max-width: 980px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      display: block;
+      box-shadow: none;
     }
 
     .varanasi-guide-content h3 {
       color: #1a4f9e;
-      font-size: 1.35rem;
-      margin-top: 0.45rem;
+      font-size: 1.33rem;
+      margin: 0.95rem 0 0.55rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid #eaf2ff;
+      line-height: 1.4;
+    }
+
+    .varanasi-guide-content h3:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
     }
 
     .varanasi-guide-content h4 {
-      color: #173f83;
-      font-size: 1.1rem;
-      margin-top: 0.25rem;
+      color: #24599f;
+      font-size: 1.04rem;
+      margin: 0.62rem 0 0.28rem;
+      line-height: 1.45;
     }
 
     .varanasi-guide-content p,
     .varanasi-guide-content li {
-      color: #4f6f9c;
-      font-size: 0.97rem;
+      color: #476894;
+      font-size: 1rem;
+      line-height: 1.78;
+    }
+
+    .varanasi-guide-content p {
+      margin-bottom: 0.88rem;
     }
 
     .varanasi-guide-list {
-      margin-left: 1.1rem;
+      list-style: none;
+      margin: 0.15rem 0 0.9rem;
+      padding: 0;
       display: grid;
-      gap: 0.28rem;
+      grid-template-columns: repeat(2, minmax(190px, 1fr));
+      gap: 0.42rem 0.95rem;
+    }
+
+    .varanasi-guide-list li {
+      color: #325884;
+      position: relative;
+      padding: 0.26rem 0 0.32rem 1.18rem;
+      border-bottom: 1px solid #ebf2ff;
+      line-height: 1.46;
+      font-size: 0.96rem;
+    }
+
+    .varanasi-guide-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      top: 0.26rem;
+      color: #2a63d6;
+      font-weight: 800;
     }
 
     .varanasi-guide-table {
@@ -1065,23 +1117,37 @@
     }
 
     .faq-qa-list {
-      margin-left: 1.2rem;
-      display: grid;
-      gap: 0.95rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: block;
     }
 
     .faq-qa-list li {
-      padding-left: 0.15rem;
+      margin-top: 0.95rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid #eaf2ff;
+    }
+
+    .faq-qa-list li:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
     }
 
     .faq-qa-list h4 {
-      color: #173f83;
-      font-size: 1.02rem;
-      margin-bottom: 0.24rem;
+      color: #1a4f9e;
+      font-size: 1.33rem;
+      margin-bottom: 0.55rem;
+      line-height: 1.4;
+      font-weight: 700;
     }
 
     .faq-qa-list p {
       margin: 0;
+      color: #476894;
+      font-size: 1rem;
+      line-height: 1.78;
     }
 
     .testimonial {
@@ -1928,6 +1994,14 @@
 
       .location-cta-actions .btn {
         width: 100%;
+      }
+
+      .varanasi-guide {
+        padding: 2.65rem 0;
+      }
+
+      .varanasi-guide-list {
+        grid-template-columns: 1fr;
       }
 
       .location-link-hub {
