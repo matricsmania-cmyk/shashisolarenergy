@@ -217,22 +217,35 @@
     }
 
     .topbar .social a {
-      color: #eaf1ff;
+      color: #123a7a;
       text-decoration: none;
-      font-weight: 700;
-      width: 1.55rem;
-      height: 1.55rem;
-      border-radius: 50%;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 999px;
       display: grid;
       place-items: center;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(234, 241, 255, 0.35);
-      transition: transform .2s ease, background .2s ease;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 4px 12px rgba(3, 24, 54, 0.15);
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .topbar .social a svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      fill: currentColor;
+      display: block;
     }
 
     .topbar .social a:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+      background: #ffffff;
+      box-shadow: 0 8px 18px rgba(3, 24, 54, 0.2);
+    }
+
+    .topbar .social a:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.9);
+      outline-offset: 2px;
     }
 
     nav {
@@ -1059,6 +1072,46 @@
     }
 
     .footer-links a:hover { color: #fff; }
+
+
+    .footer-social {
+      display: inline-flex;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: 0.85rem;
+    }
+
+    .footer-social a {
+      color: #123a7a;
+      text-decoration: none;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      box-shadow: 0 4px 10px rgba(3, 24, 54, 0.16);
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .footer-social a svg {
+      width: 1rem;
+      height: 1rem;
+      fill: currentColor;
+      display: block;
+    }
+
+    .footer-social a:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+      box-shadow: 0 8px 18px rgba(3, 24, 54, 0.2);
+    }
+
+    .footer-social a:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.9);
+      outline-offset: 2px;
+    }
 
     .newsletter {
       display: flex;
@@ -2598,9 +2651,16 @@
             <div class="topbar-right">
               <strong>We Are Social :</strong>
               <div class="social" aria-label="social links">
-                <a href="#" aria-label="Facebook">f</a>
-                <a href="#" aria-label="Twitter">x</a>
-                <a href="#" aria-label="Instagram">ig</a>
+                <a class="social-link social-facebook" href="https://www.facebook.com/share/18oUpTzVyk/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.407.595 24 1.326 24h11.495v-9.294H9.691V11.08h3.13V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.312h3.587l-.467 3.626h-3.12V24h6.116C23.406 24 24 23.407 24 22.674V1.326C24 .592 23.406 0 22.675 0z" />
+                  </svg>
+                </a>
+                <a class="social-link social-instagram" href="https://www.instagram.com/shashisolarenergyofficial/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2A5.8 5.8 0 0 1 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2ZM7.6 4A3.6 3.6 0 0 0 4 7.6V16.4C4 18.39 5.61 20 7.6 20H16.4A3.6 3.6 0 0 0 20 16.4V7.6C20 5.61 18.39 4 16.4 4H7.6ZM17.25 5.5A1.25 1.25 0 1 1 16 6.75A1.25 1.25 0 0 1 17.25 5.5ZM12 7A5 5 0 1 1 7 12A5 5 0 0 1 12 7ZM12 9A3 3 0 1 0 15 12A3 3 0 0 0 12 9Z" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -3064,6 +3124,18 @@
       <section class="footer-col">
         <h4>Stay Updated</h4>
         <p>Get solar tips, subsidy updates, and maintenance reminders.</p>
+        <div class="footer-social" aria-label="footer social links">
+          <a class="social-link social-facebook" href="https://www.facebook.com/share/18oUpTzVyk/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.407.595 24 1.326 24h11.495v-9.294H9.691V11.08h3.13V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.312h3.587l-.467 3.626h-3.12V24h6.116C23.406 24 24 23.407 24 22.674V1.326C24 .592 23.406 0 22.675 0z" />
+            </svg>
+          </a>
+          <a class="social-link social-instagram" href="https://www.instagram.com/shashisolarenergyofficial/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2A5.8 5.8 0 0 1 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2ZM7.6 4A3.6 3.6 0 0 0 4 7.6V16.4C4 18.39 5.61 20 7.6 20H16.4A3.6 3.6 0 0 0 20 16.4V7.6C20 5.61 18.39 4 16.4 4H7.6ZM17.25 5.5A1.25 1.25 0 1 1 16 6.75A1.25 1.25 0 0 1 17.25 5.5ZM12 7A5 5 0 1 1 7 12A5 5 0 0 1 12 7ZM12 9A3 3 0 1 0 15 12A3 3 0 0 0 12 9Z" />
+            </svg>
+          </a>
+        </div>
       </section>
     </div>
 
