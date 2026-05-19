@@ -10,25 +10,16 @@
   <meta name="theme-color" content="#123a7a" />
     <link rel="canonical" href="https://www.shashisolarenergy.com/" />
   <link rel="alternate" hreflang="en-IN" href="https://www.shashisolarenergy.com/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
-  <link rel="preconnect" href="https://www.sunrisesolarent.com" crossorigin />
-  <link rel="dns-prefetch" href="//images.pexels.com" />
-  <link rel="dns-prefetch" href="//www.sunrisesolarent.com" />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" as="style" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" /></noscript>
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Solar Company in Varanasi | Shashi Solar Energy" />
   <meta property="og:description" content="Shashi Solar Energy is a trusted solar company in Varanasi for rooftop solar panel installation, subsidy support, net-metering help, and long-term service." />
   <meta property="og:url" content="https://www.shashisolarenergy.com/" />
   <meta property="og:site_name" content="Shashi Solar Energy" />
-  <meta property="og:image" content="https://www.shashisolarenergy.com/shashi-solar-logo.ico" />
+  <meta property="og:image" content="https://www.shashisolarenergy.com/favicon-48x48.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Solar Company in Varanasi | Shashi Solar Energy" />
   <meta name="twitter:description" content="Shashi Solar Energy is a trusted solar company in Varanasi for rooftop solar panel installation, subsidy support, net-metering help, and long-term service." />
-  <meta name="twitter:image" content="https://www.shashisolarenergy.com/shashi-solar-logo.ico" />
+  <meta name="twitter:image" content="https://www.shashisolarenergy.com/favicon-48x48.png" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -43,8 +34,8 @@
           "name": "Shashi Solar Energy",
           "alternateName": "Shashi Solar Company",
           "url": "https://www.shashisolarenergy.com/",
-          "logo": "https://www.shashisolarenergy.com/shashi-solar-logo.ico",
-          "image": "https://www.shashisolarenergy.com/shashi-solar-logo.ico",
+          "logo": "https://www.shashisolarenergy.com/favicon-48x48.png",
+          "image": "https://www.shashisolarenergy.com/favicon-48x48.png",
           "description": "Shashi Solar Energy is a solar company in Varanasi offering rooftop solar installation, on-grid solar systems, hybrid solar systems, subsidy guidance, net-metering support and maintenance.",
           "telephone": "+91 9194258575",
           "email": "shashisolarenergyofficial@gmail.com",
@@ -89,7 +80,7 @@
           "about": { "@id": "https://www.shashisolarenergy.com/#business" },
           "primaryImageOfPage": {
             "@type": "ImageObject",
-            "url": "https://www.shashisolarenergy.com/shashi-solar-logo.ico"
+            "url": "https://www.shashisolarenergy.com/favicon-48x48.png"
           }
         },
         {
@@ -133,18 +124,32 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lora', serif;
+      font-family: Georgia, "Times New Roman", serif;
       background: radial-gradient(circle at 8% 8%, #f8fbff, var(--bg) 45%);
       color: var(--text);
       line-height: 1.6;
     }
 
     h1, h2, h3, h4, .logo-text {
-      font-family: 'Lora', serif;
+      font-family: Georgia, "Times New Roman", serif;
       letter-spacing: -0.01em;
     }
 
     .container { width: min(var(--container), 92%); margin: 0 auto; }
+
+    /* Defer offscreen section rendering on long homepage to reduce initial layout cost */
+    #varanasi-solar-guide,
+    #services,
+    #process,
+    #solar-systems-varanasi-guide,
+    #locations,
+    #regional-locations,
+    #solar-bill-reduction-varanasi,
+    #contact,
+    #varanasi-faq {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 900px;
+    }
 
     .topbar {
       background: #123a7a;
@@ -223,7 +228,6 @@
       z-index: 60;
       background: rgba(8, 24, 47, 0.95);
       border-bottom: 1px solid rgba(215, 229, 255, 0.16);
-      backdrop-filter: blur(8px);
     }
 
     .nav-wrap {
@@ -445,9 +449,7 @@
       position: relative;
       display: grid;
       align-items: center;
-      background:
-        linear-gradient(110deg, rgba(6, 16, 31, 0.88) 5%, rgba(11, 29, 52, 0.72) 45%, rgba(13, 37, 72, 0.72) 100%),
-        url('https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover no-repeat;
+      background: linear-gradient(110deg, rgba(6, 16, 31, 0.88) 5%, rgba(11, 29, 52, 0.72) 45%, rgba(13, 37, 72, 0.72) 100%);
     }
 
     .hero::before {
@@ -1685,8 +1687,7 @@
     .motion-reveal {
       opacity: 0;
       transform: translate3d(0, 30px, 0) scale(0.985);
-      filter: blur(6px);
-      transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
       transition-delay: var(--reveal-delay, 0ms);
     }
 
@@ -1701,7 +1702,6 @@
     .motion-reveal.in-view {
       opacity: 1;
       transform: translate3d(0, 0, 0) scale(1);
-      filter: blur(0);
     }
 
     .motion-depth {
@@ -1768,6 +1768,32 @@
     }
 
     @media (max-width: 980px) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      body {
+        background: #eef6ff;
+      }
+
+      .hero {
+        min-height: auto;
+        background: linear-gradient(110deg, rgba(6, 16, 31, 0.88) 5%, rgba(11, 29, 52, 0.84) 45%, rgba(13, 37, 72, 0.84) 100%);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .hero::after {
+        display: none;
+      }
+
+      .hero-content h1 {
+        text-shadow: none;
+      }
+
       .testimonial,
       .contact-grid { grid-template-columns: 1fr; }
 
@@ -2251,9 +2277,6 @@
       .float-drift {
         animation: none !important;
       }
-      .motion-reveal {
-        filter: none !important;
-      }
     }
       /* UI Refresh Patch */
     body {
@@ -2306,15 +2329,9 @@
       overflow: hidden;
     }
     .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto -14% -56% -14%;
-      height: 68%;
-      background: radial-gradient(ellipse at center, rgba(120, 178, 255, 0.28), rgba(120, 178, 255, 0));
-      pointer-events: none;
+      display: none;
     }
     .hero-content h1 {
-      text-shadow: 0 10px 34px rgba(8, 24, 49, 0.42);
       letter-spacing: -0.02em;
     }
     .hero-content p {
@@ -2427,8 +2444,7 @@
       text-decoration: none;
       border: 1px solid rgba(170, 214, 255, 0.46);
       box-shadow: 0 12px 26px rgba(11, 35, 76, 0.28);
-      backdrop-filter: blur(6px);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .floating-contact-pill svg {
@@ -2448,7 +2464,6 @@
     .floating-contact-pill:hover {
       transform: translateY(-2px);
       box-shadow: 0 16px 30px rgba(8, 28, 61, 0.34);
-      filter: saturate(1.06);
     }
 
     .floating-whatsapp {
@@ -2481,7 +2496,9 @@
       display: none !important;
     }
 </style>
-  <link rel='stylesheet' href='theme-premium.css' />
+  <link rel="preload" href="theme-premium.css" as="style" />
+  <link rel="stylesheet" href="theme-premium.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="theme-premium.css" /></noscript>
 </head>
 <body>
   <main>
@@ -2515,7 +2532,7 @@
         <nav>
           <div class="container nav-wrap">
             <a class="logo" href="index.html" aria-label="Shashi Solar Energy home">
-              <img src="shashi-solar-logo.ico" alt="Shashi Solar Energy logo" />
+              <img src="favicon-48x48.png" alt="Shashi Solar Energy logo" width="48" height="48" decoding="async" />
               <span class="logo-text">Shashi <span>Solar Energy</span></span>
             </a>
             <ul class="menu">
@@ -2598,7 +2615,7 @@
         <div class="solar-calc-head">
           <div>
             <div class="solar-calc-brand">
-              <img src="shashi-solar-logo.ico" alt="Shashi Solar Energy logo" />
+              <img src="favicon-48x48.png" alt="Shashi Solar Energy logo" width="48" height="48" decoding="async" />
               <strong>Shashi Solar Energy</strong>
             </div>
             <p class="solar-calc-kicker">Solar Savings Calculator</p>
@@ -3306,7 +3323,7 @@
     <div class="container footer-grid">
       <section class="footer-brand">
         <div class="footer-brand-head">
-          <img src="shashi-solar-logo.ico" alt="Shashi Solar Energy logo" />
+          <img src="favicon-48x48.png" alt="Shashi Solar Energy logo" width="48" height="48" decoding="async" />
           <h3>Shashi <span style="color:#ffffff;">Solar Energy</span></h3>
         </div>
         <p>Reliable blue-sky energy solutions for homes and businesses. We design, install, and support end-to-end solar systems.</p>
@@ -3545,7 +3562,7 @@
         chartAnimationId = requestAnimationFrame(frame);
       }
 
-      function render(showLead, dataOverride) {
+      function render(showLead, dataOverride, shouldDrawChart = true) {
         const data = dataOverride || calculate();
         window.shashiSolarCalculatorData = data;
 
@@ -3558,7 +3575,7 @@
         get('solarEmi').innerHTML = money(data.emi) + '/month';
         get('solarSubsidy').innerHTML = money(data.subsidy);
         if (showLead) get('solarLeadForm').classList.add('active');
-        drawChart(data);
+        if (shouldDrawChart) drawChart(data);
 
         const message = [
           'Hi Shashi Solar Energy, I want a solar quotation.',
@@ -3585,7 +3602,7 @@
           '<!doctype html><html><head><title>Solar Savings Report</title>',
           '<style>body{font-family:Arial,sans-serif;color:#10243d;padding:28px}h1{color:#1a4f9e}table{width:100%;border-collapse:collapse;margin-top:18px}td{border:1px solid #c9dbf6;padding:10px}.brand{display:flex;align-items:center;gap:12px}.brand img{width:52px;height:52px;object-fit:contain}</style>',
           '</head><body>',
-          '<div class="brand"><img src="shashi-solar-logo.ico" alt=""><div><h1>Shashi Solar Energy</h1><p>Solar Savings Calculator Report</p></div></div>',
+          '<div class="brand"><img src="favicon-48x48.png" alt=""><div><h1>Shashi Solar Energy</h1><p>Solar Savings Calculator Report</p></div></div>',
           '<p><strong>Lead:</strong> ' + lead.name + ' | ' + lead.phone + ' | ' + lead.email + ' | ' + lead.city + '</p>',
           '<table>',
           '<tr><td>System Type</td><td>' + data.type + '</td></tr>',
@@ -3606,43 +3623,62 @@
         report.print();
       }
 
-            get('solarCalculateBtn').addEventListener('click', () => {
-        render(true);
-        if (window.matchMedia('(max-width: 768px)').matches) {
-          const resultAnchor = get('solarResults');
-          if (resultAnchor) {
-            setTimeout(() => {
-              resultAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 80);
-          }
-        }
-      });
-      get('solarReportBtn').addEventListener('click', printReport);
+      let calculatorInitialized = false;
+      const initCalculator = () => {
+        if (calculatorInitialized) return;
+        calculatorInitialized = true;
 
-      render(false, {
-        type: get('solarType').value,
-        state: get('solarState').value,
-        bill: 0,
-        load: 0,
-        rate: 0,
-        sunlight: 0,
-        inflation: 0,
-        monthlyUnits: 0,
-        unitsPerKw: 0,
-        sizeKw: 0,
-        monthlyGeneration: 0,
-        monthlySavings: 0,
-        annualSavings: 0,
-        savings25: 0,
-        installationCost: 0,
-        subsidy: 0,
-        netCost: 0,
-        paybackYears: 0,
-        co2Reduction: 0,
-        treesSaved: 0,
-        offset: 0,
-        emi: 0
-      });
+        get('solarCalculateBtn').addEventListener('click', () => {
+          render(true);
+          if (window.matchMedia('(max-width: 768px)').matches) {
+            const resultAnchor = get('solarResults');
+            if (resultAnchor) {
+              setTimeout(() => {
+                resultAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 80);
+            }
+          }
+        });
+        get('solarReportBtn').addEventListener('click', printReport);
+
+        render(false, {
+          type: get('solarType').value,
+          state: get('solarState').value,
+          bill: 0,
+          load: 0,
+          rate: 0,
+          sunlight: 0,
+          inflation: 0,
+          monthlyUnits: 0,
+          unitsPerKw: 0,
+          sizeKw: 0,
+          monthlyGeneration: 0,
+          monthlySavings: 0,
+          annualSavings: 0,
+          savings25: 0,
+          installationCost: 0,
+          subsidy: 0,
+          netCost: 0,
+          paybackYears: 0,
+          co2Reduction: 0,
+          treesSaved: 0,
+          offset: 0,
+          emi: 0
+        }, false);
+      };
+
+      if ('IntersectionObserver' in window) {
+        const calcObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            initCalculator();
+            calcObserver.disconnect();
+          });
+        }, { rootMargin: '300px 0px' });
+        calcObserver.observe(section);
+      } else {
+        window.setTimeout(initCalculator, 250);
+      }
     })();
   </script>
   <script>
@@ -3653,9 +3689,13 @@
       const mobileDrawerClose = document.querySelector('.mobile-drawer-close');
       const mobileMenuLinks = document.querySelectorAll('.mobile-drawer-menu a');
       const siteNav = document.querySelector('nav');
+      let isNavScrolled = false;
       const syncNavState = () => {
         if (!siteNav) return;
-        siteNav.classList.toggle('is-scrolled', window.scrollY > 24);
+        const shouldBeScrolled = window.scrollY > 24;
+        if (shouldBeScrolled === isNavScrolled) return;
+        isNavScrolled = shouldBeScrolled;
+        siteNav.classList.toggle('is-scrolled', shouldBeScrolled);
       };
       syncNavState();
       window.addEventListener('scroll', syncNavState, { passive: true });
@@ -3699,174 +3739,85 @@
         });
       }
 
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      const addClass = (selector, className) => {
-        document.querySelectorAll(selector).forEach((el) => el.classList.add(className));
-      };
+      const initMotionEnhancements = () => {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        const lowEndDevice = window.matchMedia('(max-width: 980px)').matches ||
+          (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ||
+          (navigator.connection && (navigator.connection.saveData || /(^|\\b)(slow-2g|2g|3g)\\b/i.test(String(navigator.connection.effectiveType || ''))));
+        if (prefersReduced || lowEndDevice) return;
 
-      addClass('.hero-feature', 'float-soft');
-      addClass('.solar-calc-stat', 'float-gentle');
-      addClass('.video-card', 'float-drift');
-      addClass('.card, .step, .location-card, .solar-result-card, .solar-calc-panel, .contact-info, .form-wrap, .quote-card', 'motion-depth');
+        const addClass = (selector, className) => {
+          document.querySelectorAll(selector).forEach((el) => el.classList.add(className));
+        };
 
-      const revealGroups = [
-        ['.hero-features .hero-feature', 'from-left'],
-        ['.hero-content .eyebrow, .hero h1, .hero p, .hero-actions', 'from-right'],
-        ['#solar-calculator .solar-calc-head > div:first-child, #solar-calculator .solar-calc-stat', ''],
-        ['#solar-calculator .solar-calc-panel', ''],
-        ['#services .section-title, #services .card', ''],
-        ['.about-strip .fact', 'from-left'],
-        ['#process .section-title, #process .step', ''],
-        ['#locations .section-title, #locations .location-card, #locations .location-cta', ''],
-        ['.testimonial .video-card, .testimonial .quote-card', ''],
-        ['#contact .contact-info, #contact .form-wrap', ''],
-        ['.footer-brand, .footer-col', '']
-      ];
+        addClass('.hero-feature', 'float-soft');
+        addClass('.solar-calc-stat', 'float-gentle');
+        addClass('.video-card', 'float-drift');
+        addClass('.card, .step, .location-card, .solar-result-card, .solar-calc-panel, .contact-info, .form-wrap, .quote-card', 'motion-depth');
 
-      const revealEls = [];
-      revealGroups.forEach(([selector, sideClass]) => {
-        document.querySelectorAll(selector).forEach((el, index) => {
-          if (!el.classList.contains('motion-reveal')) {
-            el.classList.add('motion-reveal');
-            if (sideClass) el.classList.add(sideClass);
-            el.style.setProperty('--reveal-delay', Math.min(index * 80, 520) + 'ms');
-            revealEls.push(el);
-          }
+        const revealGroups = [
+          ['#solar-calculator .solar-calc-head > div:first-child, #solar-calculator .solar-calc-stat', ''],
+          ['#solar-calculator .solar-calc-panel', ''],
+          ['#services .section-title, #services .card', ''],
+          ['.about-strip .fact', 'from-left'],
+          ['#process .section-title, #process .step', ''],
+          ['#locations .section-title, #locations .location-card, #locations .location-cta', ''],
+          ['.testimonial .video-card, .testimonial .quote-card', ''],
+          ['#contact .contact-info, #contact .form-wrap', ''],
+          ['.footer-brand, .footer-col', '']
+        ];
+
+        const revealEls = [];
+        revealGroups.forEach(([selector, sideClass]) => {
+          document.querySelectorAll(selector).forEach((el, index) => {
+            if (!el.classList.contains('motion-reveal')) {
+              el.classList.add('motion-reveal');
+              if (sideClass) el.classList.add(sideClass);
+              el.style.setProperty('--reveal-delay', Math.min(index * 80, 520) + 'ms');
+              revealEls.push(el);
+            }
+          });
         });
-      });
 
-      const progress = document.createElement('div');
-      progress.className = 'motion-progress';
-      document.body.appendChild(progress);
-      let progressTicking = false;
-      const updateProgress = () => {
-        const doc = document.documentElement;
-        const max = Math.max(doc.scrollHeight - window.innerHeight, 1);
-        const pct = Math.max(0, Math.min(window.scrollY / max, 1));
-        progress.style.transform = 'scaleX(' + pct + ')';
-        progressTicking = false;
-      };
-      const onScroll = () => {
-        if (progressTicking) return;
-        progressTicking = true;
-        requestAnimationFrame(updateProgress);
-      };
-      updateProgress();
-      window.addEventListener('scroll', onScroll, { passive: true });
-
-      if (prefersReduced || !('IntersectionObserver' in window)) {
-        revealEls.forEach((el) => el.classList.add('in-view'));
-        progress.style.display = 'none';
-        return;
-      }
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        });
-      }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
-
-      revealEls.forEach((el) => observer.observe(el));
-
-      if (!finePointer) return;
-
-      document.querySelectorAll('.motion-depth').forEach((el) => {
-        el.addEventListener('pointermove', (event) => {
-          const rect = el.getBoundingClientRect();
-          const px = (event.clientX - rect.left) / rect.width;
-          const py = (event.clientY - rect.top) / rect.height;
-          const rx = (0.5 - py) * 5.5;
-          const ry = (px - 0.5) * 6;
-          const tz = 8;
-          el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateZ(' + tz + 'px)';
-        });
-        el.addEventListener('pointerleave', () => {
-          el.style.transform = '';
-        });
-      });
-    })();
-  </script>
-  <script>
-    (function () {
-      const keywords = [
-        'Solar Company in Varanasi',
-        'Best Solar Company in Varanasi',
-        'Solar Panel Installation in Varanasi',
-        'Shashi Solar Energy',
-        'Rooftop Solar Solutions',
-        'Rooftop Solar System',
-        'Rooftop Solar Systems',
-        'Solar Panel Company in Varanasi',
-        'Solar Energy Company in Varanasi',
-        'PM Surya Ghar Yojana',
-        'Solar Subsidy',
-        'Government Subsidy on Solar Panels',
-        'Net Metering',
-        'On-Grid Solar System',
-        'Off-Grid Solar System',
-        'Hybrid Solar System',
-        'Solar Panel Price in Varanasi',
-        'Commercial Rooftop Solar Company',
-        'Solar EPC Services',
-        'Solar Maintenance Services',
-        'Clean Energy Solutions',
-        'Renewable Energy',
-        'Energy Savings',
-        'Electricity Bills',
-        'Solar Dealers in Varanasi',
-        'Solar Energy for Homes',
-        'Solar Services'
-      ].sort((a, b) => b.length - a.length);
-
-      const targets = document.querySelectorAll('main h1, main h2, main h3, main h4, main p, main li, main td, main th');
-      if (!targets.length || !keywords.length) return;
-
-      const escaped = keywords.map((item) => item.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-      const pattern = new RegExp('(' + escaped.join('|') + ')', 'gi');
-      const skipTags = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA', 'INPUT', 'BUTTON', 'SELECT', 'OPTION', 'STRONG']);
-
-      function boldTextNode(textNode) {
-        const text = textNode.nodeValue;
-        pattern.lastIndex = 0;
-        if (!text || !pattern.test(text)) return;
-        pattern.lastIndex = 0;
-
-        const frag = document.createDocumentFragment();
-        let lastIndex = 0;
-        text.replace(pattern, (match, _group, index) => {
-          if (index > lastIndex) {
-            frag.appendChild(document.createTextNode(text.slice(lastIndex, index)));
-          }
-          const strong = document.createElement('strong');
-          strong.className = 'keyword-bold';
-          strong.textContent = match;
-          frag.appendChild(strong);
-          lastIndex = index + match.length;
-          return match;
-        });
-        if (lastIndex < text.length) {
-          frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+        if (!('IntersectionObserver' in window)) {
+          revealEls.forEach((el) => el.classList.add('in-view'));
+          return;
         }
-        textNode.parentNode.replaceChild(frag, textNode);
-      }
 
-      targets.forEach((root) => {
-        if (!root || root.closest('nav') || root.closest('.site-footer') || root.closest('.floating-contact-wrap')) return;
-        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
-        const nodes = [];
-        let current;
-        while ((current = walker.nextNode())) {
-          const parent = current.parentElement;
-          if (!parent) continue;
-          if (skipTags.has(parent.tagName)) continue;
-          if (parent.closest('strong.keyword-bold')) continue;
-          nodes.push(current);
-        }
-        nodes.forEach(boldTextNode);
-      });
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+
+        revealEls.forEach((el) => observer.observe(el));
+
+        if (!finePointer) return;
+
+        document.querySelectorAll('.motion-depth').forEach((el) => {
+          el.addEventListener('pointermove', (event) => {
+            const rect = el.getBoundingClientRect();
+            const px = (event.clientX - rect.left) / rect.width;
+            const py = (event.clientY - rect.top) / rect.height;
+            const rx = (0.5 - py) * 5.5;
+            const ry = (px - 0.5) * 6;
+            const tz = 8;
+            el.style.transform = 'perspective(900px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateZ(' + tz + 'px)';
+          });
+          el.addEventListener('pointerleave', () => {
+            el.style.transform = '';
+          });
+        });
+      };
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(initMotionEnhancements, { timeout: 1200 });
+      } else {
+        window.setTimeout(initMotionEnhancements, 250);
+      }
     })();
   </script>
   <script src='theme-premium.js' defer></script>
