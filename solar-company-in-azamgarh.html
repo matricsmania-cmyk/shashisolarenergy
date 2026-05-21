@@ -537,11 +537,27 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.6rem, 6.8vw, 5.5rem);
-      line-height: 1.08;
-      margin-bottom: 1.05rem;
+      font-size: clamp(2.35rem, 5.2vw, 4.9rem);
+      line-height: 1.03;
+      margin: 0 auto 1.15rem;
+      max-width: 12.8ch;
       color: #ffffff;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       text-transform: capitalize;
+      text-wrap: balance;
+      text-shadow: 0 8px 28px rgba(5, 15, 28, 0.42);
+    }
+
+    .hero h1 .hero-title-brand {
+      display: block;
+      margin-top: 0.18em;
+      font-size: 0.8em;
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: #a8cdff;
+      text-shadow: 0 6px 20px rgba(6, 20, 39, 0.5);
     }
 
     .hero p {
@@ -1694,6 +1710,7 @@
       .hero-layout { grid-template-columns: 1fr; gap: 1.8rem; }
       .hero-features { max-width: 540px; margin: 0 auto; width: 100%; }
       .hero-content { max-width: 100%; }
+      .hero-content h1 { text-shadow: none; }
 
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -1892,8 +1909,9 @@
       }
 
       .hero h1 {
-        font-size: 2.2rem;
-        line-height: 1.15;
+        font-size: 2.1rem;
+        line-height: 1.1;
+        max-width: 13.5ch;
       }
 
       .hero p {
@@ -2108,8 +2126,9 @@
       }
 
       .hero h1 {
-        font-size: 1.85rem;
-        line-height: 1.18;
+        font-size: 1.78rem;
+        line-height: 1.12;
+        max-width: 14.5ch;
       }
 
       .hero p {
@@ -2234,7 +2253,6 @@
       pointer-events: none;
     }
     .hero-content h1 {
-      text-shadow: 0 10px 34px rgba(8, 24, 49, 0.42);
       letter-spacing: -0.02em;
     }
     .hero-content p {
@@ -2503,7 +2521,7 @@
 
           <div class="hero-content">
             <span class="eyebrow">Eco-Friendly Energy</span>
-            <h1>Solar Company in Azamgarh</h1>
+            <h1>Top Solar Company in Azamgarh <span class="hero-title-brand">Shashi Solar Energy</span></h1>
             <p>Shashi Solar Energy delivers high-performance systems, custom installation, and reliable after-sales support for homes and businesses in Azamgarh.</p>
             <div class="hero-actions">
               <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
