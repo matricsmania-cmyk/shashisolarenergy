@@ -18,11 +18,11 @@
   <meta property="og:description" content="Read solar energy guides and explore city-wise on-grid, hybrid, and solar atta chakki service pages from Shashi Solar Energy." />
   <meta property="og:url" content="https://www.shashisolarenergy.com/blog.html" />
   <meta property="og:site_name" content="Shashi Solar Energy" />
-  <meta property="og:image" content="https://www.shashisolarenergy.com/shashi-solar-logo.ico" />
+  <meta property="og:image" content="https://www.shashisolarenergy.com/shashi-solar-logo.webp" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Solar Energy Blog And Service Locations | Shashi Solar Energy" />
   <meta name="twitter:description" content="Read solar energy guides and explore city-wise on-grid, hybrid, and solar atta chakki service pages from Shashi Solar Energy." />
-  <meta name="twitter:image" content="https://www.shashisolarenergy.com/shashi-solar-logo.ico" />
+  <meta name="twitter:image" content="https://www.shashisolarenergy.com/shashi-solar-logo.webp" />
   <!-- BLOG_META_END -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -189,10 +189,21 @@
     .blog-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 14px 30px rgba(17, 52, 107, 0.09); transition: transform .24s ease, box-shadow .24s ease; }
     .blog-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(12, 42, 88, 0.16); }
     .blog-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+    .blog-card img.no-crop { aspect-ratio: auto; height: auto; object-fit: contain; background: #f2f8ff; }
     .blog-body { padding: 1rem; }
     .blog-tag { display: inline-block; background: #e1efff; color: #1a4f9e; border-radius: 999px; padding: .28rem .66rem; font-size: .78rem; font-weight: 700; margin-bottom: .7rem; }
     .blog-body h2 { color: #153f7d; font-size: 1.38rem; line-height: 1.22; margin-bottom: .45rem; }
+    .blog-body h2 a { color: inherit; text-decoration: none; }
+    .blog-body h2 a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .blog-body p { color: var(--muted); }
+    .blog-read-link {
+      display: inline-flex;
+      margin-top: .72rem;
+      color: #1a4f9e;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .blog-read-link:hover { text-decoration: underline; text-underline-offset: 3px; }
     .blog-cta { margin-top: 1.4rem; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 1.2rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center; }
     .btn {
       border: 0;
@@ -436,7 +447,7 @@
     <nav>
       <div class="container nav-wrap">
         <a class="logo" href="index.html" aria-label="Shashi Solar Energy home">
-          <img src="shashi-solar-logo.ico" alt="Shashi Solar Energy logo" />
+          <img src="shashi-solar-logo.webp" alt="Shashi Solar Energy logo" />
           <span class="logo-text">Shashi <span>Solar Energy</span></span>
         </a>
         <ul class="menu">
@@ -453,7 +464,7 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a class="btn btn-primary" href="contact.html">Get Quotes</a>
+        <a class="btn btn-primary" href="tel:+9194258575">Call Now +91 9194258575</a>
         <button class="mobile-menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
       </div>
     </nav>
@@ -485,6 +496,15 @@
 
       <div class="blog-grid">
         <article class="blog-card">
+          <img class="no-crop" loading="lazy" decoding="async" fetchpriority="low" src="rooftop-solar-installation-in-varanasi.webp" alt="Rooftop solar installation in Varanasi" />
+          <div class="blog-body">
+            <span class="blog-tag">Rooftop Solar</span>
+            <h2><a href="rooftop-solar-installation-in-varanasi.html">Best Solar Company for Rooftop Solar Installation in Varanasi</a></h2>
+            <p>Complete guide on rooftop solar cost, subsidy, net metering, benefits, and selecting the right solar installer in Varanasi.</p>
+            <a class="blog-read-link" href="rooftop-solar-installation-in-varanasi.html">Read Article</a>
+          </div>
+        </article>
+        <article class="blog-card">
           <img loading="lazy" decoding="async" fetchpriority="low" src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rooftop on-grid solar panels" />
           <div class="blog-body">
             <span class="blog-tag">On Grid Solar</span>
@@ -512,7 +532,7 @@
 
       <div class="blog-cta">
         <p>Need advice for your home, shop, school, or business solar project?</p>
-        <a class="btn btn-primary" href="contact.html">Get Free Consultation</a>
+        <a class="btn btn-primary" href="contact.html">Get Free Consultation (+91 9194258575)</a>
       </div>
     </section>
         <section class="service-locations" id="locations">
@@ -526,10 +546,10 @@
             <h3><a href="on-grid-solar-system.html">On Grid Solar System</a></h3>
             <p>Grid-connected rooftop solar installation with accurate sizing, subsidy guidance, and net-metering support.</p>
             <div class="location-cities">
-              <a href="on-grid-solar-system.html">Varanasi</a>
-              <a href="on-grid-solar-system-azamgarh.html">Azamgarh</a>
-              <a href="on-grid-solar-system-ghazipur.html">Ghazipur</a>
-              <a href="on-grid-solar-system-prayagraj.html">Prayagraj</a>
+              <a href="on-grid-solar-system.html">On Grid in Varanasi</a>
+              <a href="on-grid-solar-system-azamgarh.html">On Grid in Azamgarh</a>
+              <a href="on-grid-solar-system-ghazipur.html">On Grid in Ghazipur</a>
+              <a href="on-grid-solar-system-prayagraj.html">On Grid in Prayagraj</a>
             </div>
             <ul class="location-points">
               <li>Detailed load analysis and rooftop suitability survey.</li>
@@ -544,10 +564,10 @@
             <h3><a href="hybrid-solar-system.html">Hybrid Solar System</a></h3>
             <p>Hybrid solar setups with battery backup for dependable power during evenings and power cuts.</p>
             <div class="location-cities">
-              <a href="hybrid-solar-system.html">Varanasi</a>
-              <a href="hybrid-solar-system-azamgarh.html">Azamgarh</a>
-              <a href="hybrid-solar-system-ghazipur.html">Ghazipur</a>
-              <a href="hybrid-solar-system-prayagraj.html">Prayagraj</a>
+              <a href="hybrid-solar-system.html">Hybrid in Varanasi</a>
+              <a href="hybrid-solar-system-azamgarh.html">Hybrid in Azamgarh</a>
+              <a href="hybrid-solar-system-ghazipur.html">Hybrid in Ghazipur</a>
+              <a href="hybrid-solar-system-prayagraj.html">Hybrid in Prayagraj</a>
             </div>
             <ul class="location-points">
               <li>Battery and inverter planning as per usage pattern.</li>
@@ -562,17 +582,17 @@
             <h3><a href="solar-atta-chakki.html">Solar Atta Chakki</a></h3>
             <p>Solar-powered atta chakki solutions for rural entrepreneurs and small business flour milling setups.</p>
             <div class="location-cities">
-              <a href="solar-atta-chakki-aurangabad.html">Aurangabad</a>
-              <a href="solar-atta-chakki-azamgarh.html">Azamgarh</a>
-              <a href="solar-atta-chakki-basti.html">Basti</a>
-              <a href="solar-atta-chakki-begusarai.html">Begusarai</a>
-              <a href="solar-atta-chakki-buxar.html">Buxar</a>
-              <a href="solar-atta-chakki-east-champaran.html">East Champaran</a>
-              <a href="solar-atta-chakki-gaya.html">Gaya</a>
-              <a href="solar-atta-chakki-ghazipur.html">Ghazipur</a>
-              <a href="solar-atta-chakki-kaimur.html">Kaimur</a>
-              <a href="solar-atta-chakki-prayagraj.html">Prayagraj</a>
-              <a href="solar-atta-chakki.html">Varanasi</a>
+              <a href="solar-atta-chakki-aurangabad.html">Solar Atta Chakki in Aurangabad</a>
+              <a href="solar-atta-chakki-azamgarh.html">Solar Atta Chakki in Azamgarh</a>
+              <a href="solar-atta-chakki-basti.html">Solar Atta Chakki in Basti</a>
+              <a href="solar-atta-chakki-begusarai.html">Solar Atta Chakki in Begusarai</a>
+              <a href="solar-atta-chakki-buxar.html">Solar Atta Chakki in Buxar</a>
+              <a href="solar-atta-chakki-east-champaran.html">Solar Atta Chakki in East Champaran</a>
+              <a href="solar-atta-chakki-gaya.html">Solar Atta Chakki in Gaya</a>
+              <a href="solar-atta-chakki-ghazipur.html">Solar Atta Chakki in Ghazipur</a>
+              <a href="solar-atta-chakki-kaimur.html">Solar Atta Chakki in Kaimur</a>
+              <a href="solar-atta-chakki-prayagraj.html">Solar Atta Chakki in Prayagraj</a>
+              <a href="solar-atta-chakki.html">Solar Atta Chakki in Varanasi</a>
             </div>
             <ul class="location-points">
               <li>Machine load calculation and system capacity planning.</li>
@@ -590,8 +610,8 @@
             <p>Share your city and monthly usage to get a practical recommendation, expected savings, and implementation timeline.</p>
           </div>
           <div class="location-cta-actions">
-            <a class="btn btn-primary" href="contact.html">Get Free Consultation</a>
-            <a class="btn btn-ghost" href="contact.html">Book Free Site Survey</a>
+            <a class="btn btn-primary" href="contact.html">Get Free Consultation (+91 9194258575)</a>
+            <a class="btn btn-ghost" href="contact.html">Book Free Site Survey (+91 9194258575)</a>
           </div>
         </div>
       </div>
@@ -602,7 +622,7 @@
     <div class="container footer-grid">
       <section class="footer-brand">
         <div class="footer-brand-head">
-          <img src="shashi-solar-logo.ico" alt="Shashi Solar Energy logo" />
+          <img src="shashi-solar-logo.webp" alt="Shashi Solar Energy logo" />
           <h3>Shashi <span style="color:#ffffff;">Solar Energy</span></h3>
         </div>
         <p>Reliable blue-sky energy solutions for homes and businesses. We design, install, and support end-to-end solar systems.</p>
@@ -696,6 +716,11 @@
   <script src="theme-premium.js" defer></script>
 </body>
 </html>
+
+
+
+
+
 
 
 
