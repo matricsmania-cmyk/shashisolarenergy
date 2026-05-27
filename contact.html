@@ -1007,7 +1007,8 @@
     }
 
     .contact-info,
-    .form-wrap {
+    .form-wrap,
+    .map-card {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 18px;
@@ -1015,8 +1016,35 @@
     }
 
     .contact-info h3,
-    .form-wrap h3 { color: #1d4f97; margin-bottom: 0.5rem; }
+    .form-wrap h3,
+    .map-card h3 { color: #1d4f97; margin-bottom: 0.5rem; }
     .contact-info p { color: var(--muted); margin-bottom: 0.6rem; }
+
+    .map-card {
+      grid-column: 1 / -1;
+      overflow: hidden;
+    }
+
+    .map-card p {
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    .map-frame {
+      width: 100%;
+      min-height: 380px;
+      border: 0;
+      border-radius: 14px;
+      display: block;
+      background: #e9f2ff;
+    }
+
+    .map-actions {
+      margin-top: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
 
     form { display: grid; gap: 0.65rem; }
 
@@ -2575,6 +2603,21 @@
             <button type="submit" class="btn btn-primary">Send Request</button>
           </form>
         </div>
+
+        <article class="map-card" aria-labelledby="office-map-title">
+          <h3 id="office-map-title">Visit Our Office</h3>
+          <p>Shashi Solar Energy, G 11 PCF Plaza, Nadesar, Cantonment, Varanasi 221002</p>
+          <iframe
+            class="map-frame"
+            title="Shashi Solar Energy office location on Google Maps"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=G%2011%20PCF%20Plaza%2C%20Nadesar%2C%20Cantonment%2C%20Varanasi%20221002&output=embed">
+          </iframe>
+          <div class="map-actions">
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=G%2011%20PCF%20Plaza%2C%20Nadesar%2C%20Cantonment%2C%20Varanasi%20221002" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
