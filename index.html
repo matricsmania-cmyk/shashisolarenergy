@@ -89,7 +89,7 @@
           "name": "Solar Company in Varanasi | Rooftop Solar with Subsidy - Shashi Solar Energy",
           "description": "Save up to 90% on electricity bills with rooftop solar installation in Varanasi. Get government subsidy, on-grid and hybrid solar systems, expert support, and affordable solar solutions from Shashi Solar Energy.",
           "inLanguage": "en-IN",
-          "dateModified": "2026-05-29",
+          "dateModified": "2026-06-02",
           "isPartOf": { "@id": "https://www.shashisolarenergy.com/#website" },
           "about": { "@id": "https://www.shashisolarenergy.com/#business" },
           "primaryImageOfPage": {
@@ -120,6 +120,208 @@
   <link rel="preload" href="theme-premium.css" as="style" />
   <link rel="stylesheet" href="theme-premium.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="theme-premium.css" /></noscript>
+  <style>
+    #google-business-profile-reviews {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 760px;
+      background: linear-gradient(180deg, #f8fbff 0%, #edf5ff 100%);
+      border-top: 1px solid #d8e6fb;
+      border-bottom: 1px solid #d8e6fb;
+    }
+    .google-review-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .google-review-head .section-title {
+      margin-bottom: 0;
+      text-align: left;
+    }
+    .google-review-head .section-title p {
+      max-width: 780px;
+      margin: 0;
+    }
+    .google-review-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      color: #24599f;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+    .google-review-badge-mark,
+    .google-review-logo {
+      display: inline-grid;
+      place-items: center;
+      color: #ffffff;
+      background: conic-gradient(from -45deg, #4285f4 0 25%, #34a853 25% 45%, #fbbc05 45% 67%, #ea4335 67% 100%);
+      border-radius: 50%;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+    }
+    .google-review-badge-mark {
+      width: 2rem;
+      height: 2rem;
+      font-size: 1rem;
+    }
+    .google-review-grid {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0.15rem 0 0.8rem;
+      scroll-snap-type: x proximity;
+      scrollbar-color: #b8d0ff transparent;
+    }
+    .google-review-card {
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 290px;
+      gap: 0.68rem;
+      min-height: 275px;
+      padding: 1rem;
+      border: 1px solid #d6e5fb;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 14px 30px rgba(17, 52, 107, 0.08);
+      scroll-snap-align: start;
+    }
+    .google-review-card-head {
+      display: grid;
+      grid-template-columns: 44px 1fr 30px;
+      gap: 0.7rem;
+      align-items: center;
+    }
+    .google-review-avatar {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: #ffffff;
+      background: linear-gradient(135deg, #1a4f9e, #7dbdff);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+    .google-review-card-head h3 {
+      margin: 0;
+      color: #10243d;
+      font-size: 1.05rem;
+    }
+    .google-review-card-head p {
+      margin: 0.12rem 0 0;
+      color: #6780a5;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+    .google-review-logo {
+      width: 1.55rem;
+      height: 1.55rem;
+      font-size: 0.8rem;
+    }
+    .google-review-trust h3 {
+      color: #173f83;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    .google-review-trust p,
+    .google-review-trust li {
+      color: #4d6f9f;
+      font-size: 0.97rem;
+      line-height: 1.72;
+    }
+    .google-review-stars {
+      color: #f6a623;
+      font-size: 1.25rem;
+      letter-spacing: 0.12rem;
+      line-height: 1;
+    }
+    .google-review-preview,
+    .google-review-details {
+      color: #405f8e;
+      font-size: 0.95rem;
+      line-height: 1.64;
+    }
+    .google-review-preview {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+    }
+    .google-review-details {
+      display: none;
+      margin-top: -0.2rem;
+      color: #5677a3;
+      font-size: 0.88rem;
+    }
+    .google-review-card.is-expanded .google-review-preview {
+      -webkit-line-clamp: unset;
+    }
+    .google-review-card.is-expanded .google-review-details {
+      display: block;
+    }
+    .google-review-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-top: auto;
+    }
+    .google-review-toggle {
+      padding: 0;
+      border: 0;
+      color: #123a7a;
+      background: transparent;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .google-review-toggle:hover {
+      color: #2a63d6;
+    }
+    .google-review-link {
+      color: #1a4f9e;
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .google-review-link:hover {
+      color: #2a63d6;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .google-review-trust {
+      margin-top: 1rem;
+      padding: 1.1rem;
+      border: 1px solid #cfe0ff;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+    .google-review-trust ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.4rem 1rem;
+      margin: 0.7rem 0 0.8rem;
+      padding-left: 1.2rem;
+    }
+    @media (max-width: 760px) {
+      .google-review-trust ul {
+        grid-template-columns: 1fr;
+      }
+      .google-review-head {
+        display: block;
+      }
+      .google-review-badge {
+        margin-top: 0.8rem;
+      }
+      .google-review-card {
+        flex-basis: min(86vw, 310px);
+      }
+    }
+  </style>
 </head>
 <body>
   <main>
@@ -1034,6 +1236,84 @@ cost-effective energy solutions available in Uttar Pradesh
         </article>
       </div>
     </section>
+    <section id="google-business-profile-reviews" aria-labelledby="google-reviews-title">
+      <div class="container">
+        <div class="google-review-head">
+          <div class="section-title">
+            <h2 id="google-reviews-title">Customer Reviews for Shashi Solar Energy</h2>
+            <p>Independent customer feedback helps homeowners and businesses evaluate a solar installer with more confidence. Read real customer experiences and use the source links to verify feedback before choosing your solar installation partner.</p>
+          </div>
+          <div class="google-review-badge" aria-label="Reviews sourced from Google Business Profile">
+            <span class="google-review-badge-mark" aria-hidden="true">G</span>
+            <span>Explore reviews on Google</span>
+          </div>
+        </div>
+        <div class="google-review-grid">
+          <article class="google-review-card">
+            <div class="google-review-card-head">
+              <span class="google-review-avatar" aria-hidden="true">MS</span>
+              <div>
+                <h3>Mukta Srivastava</h3>
+                <p>24 May 2026</p>
+              </div>
+              <span class="google-review-logo" aria-hidden="true">G</span>
+            </div>
+            <div class="google-review-stars" aria-label="5 out of 5 stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="google-review-preview">"Had a great experience with Shashi Solar Energy. Their team explained everything clearly from subsidy process to installation. The installation work was clean and professional, and the system performance is excellent. Electricity bill has reduced significantly after installing solar. Best part was their quick support and timely service. Highly recommended for anyone looking for reliable rooftop solar solutions in Varanasi."</p>
+            <p class="google-review-details">This customer review is shown from Shashi Solar Energy's public business listing. Use the external links to verify the listing and explore more customer feedback.</p>
+            <div class="google-review-actions">
+              <button class="google-review-toggle" type="button" aria-expanded="false">See more</button>
+              <a class="google-review-link" href="https://share.google/Yv0fhSH9OSm0l6Jiq" target="_blank" rel="nofollow noopener noreferrer" aria-label="Explore Shashi Solar Energy feedback on Google Business Profile">Open Google &#8594;</a>
+            </div>
+          </article>
+          <article class="google-review-card">
+            <div class="google-review-card-head">
+              <span class="google-review-avatar" aria-hidden="true">S</span>
+              <div>
+                <h3>Sanjana</h3>
+                <p>1 June 2026</p>
+              </div>
+              <span class="google-review-logo" aria-hidden="true">G</span>
+            </div>
+            <div class="google-review-stars" aria-label="5 out of 5 stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="google-review-preview">"I had a great experience with this Company. They worked very well."</p>
+            <p class="google-review-details">This customer review is shown from Shashi Solar Energy's public business listing. Open the Google Profile link to explore additional independent feedback.</p>
+            <div class="google-review-actions">
+              <button class="google-review-toggle" type="button" aria-expanded="false">See more</button>
+              <a class="google-review-link" href="https://share.google/2FMHVchlNbUvqfCNa" target="_blank" rel="nofollow noopener noreferrer" aria-label="Explore Shashi Solar Energy feedback on Google Business Profile">Open Google &#8594;</a>
+            </div>
+          </article>
+          <article class="google-review-card">
+            <div class="google-review-card-head">
+              <span class="google-review-avatar" aria-hidden="true">PS</span>
+              <div>
+                <h3>Priyanka Srivastava</h3>
+                <p>24 May 2026</p>
+              </div>
+              <span class="google-review-logo" aria-hidden="true">G</span>
+            </div>
+            <div class="google-review-stars" aria-label="5 out of 5 stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+            <p class="google-review-preview">Rated Shashi Solar Energy 5 out of 5 stars.</p>
+            <p class="google-review-details">Priyanka Srivastava's public business listing entry includes a 5-star rating without a written comment. Open the Google Profile link to explore additional independent feedback.</p>
+            <div class="google-review-actions">
+              <button class="google-review-toggle" type="button" aria-expanded="false">See more</button>
+              <a class="google-review-link" href="https://share.google/WPq7LDEDw7zzUt3bW" target="_blank" rel="nofollow noopener noreferrer" aria-label="Explore Shashi Solar Energy feedback on Google Business Profile">Open Google &#8594;</a>
+            </div>
+          </article>
+        </div>
+        <aside class="google-review-trust" aria-label="How to evaluate a solar installer">
+          <h3>What to check before choosing a solar installation company</h3>
+          <p>Reviews are useful when they are considered alongside clear technical details. Before selecting a solar company in Varanasi, ask for:</p>
+          <ul>
+            <li>A rooftop site survey and load-based system recommendation</li>
+            <li>A written proposal with panel, inverter, and structure details</li>
+            <li>Warranty information and after-sales support scope</li>
+            <li>Transparent subsidy and net-metering guidance</li>
+          </ul>
+          <p>The names, dates, and review text shown above are published on Shashi Solar Energy's <a href="https://www.justdial.com/Varanasi/Shashi-solar-Energy-Opposite-Taj-Hotel-Cantonment/0542PX542-X542-260518103759-R7J1_BZDET" target="_blank" rel="nofollow noopener noreferrer">public business listing</a>. The Google Profile links provide another route for visitors to explore independent feedback and make an informed decision.</p>
+        </aside>
+      </div>
+    </section>
     <section class="contact" id="contact">
       <div class="container contact-grid">
         <article class="contact-info">
@@ -1565,7 +1845,7 @@ cost-effective energy solutions available in Uttar Pradesh
         addClass('.hero-feature', 'float-soft');
         addClass('.solar-calc-stat', 'float-gentle');
         addClass('.video-card', 'float-drift');
-        addClass('.card, .step, .location-card, .solar-result-card, .solar-calc-panel, .contact-info, .form-wrap, .quote-card', 'motion-depth');
+        addClass('.card, .step, .location-card, .solar-result-card, .solar-calc-panel, .contact-info, .form-wrap, .quote-card, .google-review-card', 'motion-depth');
 
         const revealGroups = [
           ['#solar-calculator .solar-calc-head > div:first-child, #solar-calculator .solar-calc-stat', ''],
@@ -1575,6 +1855,7 @@ cost-effective energy solutions available in Uttar Pradesh
           ['#process .section-title, #process .step', ''],
           ['#locations .section-title, #locations .location-card, #locations .location-cta', ''],
           ['.testimonial .video-card, .testimonial .quote-card', ''],
+          ['#google-business-profile-reviews .google-review-head, #google-business-profile-reviews .google-review-card, #google-business-profile-reviews .google-review-trust', ''],
           ['#contact .contact-info, #contact .form-wrap', ''],
           ['.footer-brand, .footer-col', '']
         ];
@@ -1653,6 +1934,19 @@ cost-effective energy solutions available in Uttar Pradesh
       } else {
         window.setTimeout(initMotionEnhancements, 250);
       }
+    })();
+  </script>
+  <script>
+    (function () {
+      document.querySelectorAll('.google-review-toggle').forEach((button) => {
+        button.addEventListener('click', () => {
+          const card = button.closest('.google-review-card');
+          if (!card) return;
+          const expanded = card.classList.toggle('is-expanded');
+          button.setAttribute('aria-expanded', String(expanded));
+          button.textContent = expanded ? 'See less' : 'See more';
+        });
+      });
     })();
   </script>
   <script src='theme-premium.js' defer></script>
