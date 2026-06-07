@@ -194,3 +194,217 @@
     setGoogleTranslateCookie('en');
   }
 })();
+
+(function nextStyleEnhancements() {
+  const ready = () => {
+    document.documentElement.classList.add('next-ready');
+    document.body.classList.add('next-ready');
+
+    const progress = document.createElement('div');
+    progress.className = 'next-scroll-progress';
+    progress.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(progress);
+
+    const updateProgress = () => {
+      const scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const ratio = Math.min(1, Math.max(0, window.scrollY / scrollMax));
+      progress.style.transform = 'scaleX(' + ratio + ')';
+    };
+
+    updateProgress();
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+
+    const currentPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('nav a[href], .mobile-drawer-menu a[href]').forEach((link) => {
+      const rawHref = link.getAttribute('href') || '';
+      if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('tel:') || rawHref.startsWith('mailto:')) return;
+
+      let linkPath = rawHref.split('#')[0].split('?')[0].split('/').pop().toLowerCase();
+      if (!linkPath) linkPath = 'index.html';
+
+      if (linkPath === currentPath) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
+    document.querySelectorAll('.varanasi-guide-content').forEach((article) => {
+      if (article.dataset.nextContentUpgraded === 'true') return;
+
+      const children = Array.from(article.children);
+      if (!children.length || children.some((child) => child.classList.contains('next-content-block'))) return;
+
+      const hasSectionHeadings = children.some((child) => child.matches('h2, h3'));
+      const hasFaqList = children.some((child) => child.classList.contains('faq-qa-list'));
+      if (!hasSectionHeadings && !hasFaqList) return;
+
+      article.classList.add('next-content-stack');
+
+      const groups = [];
+      let currentGroup = null;
+
+      children.forEach((child) => {
+        const startsSection = child.matches('h2, h3');
+        if (startsSection || !currentGroup) {
+          currentGroup = document.createElement('section');
+          currentGroup.className = 'next-content-block';
+          currentGroup.setAttribute('data-card', String(groups.length + 1).padStart(2, '0'));
+          groups.push(currentGroup);
+        }
+
+        currentGroup.appendChild(child);
+      });
+
+      groups.forEach((group) => article.appendChild(group));
+      article.dataset.nextContentUpgraded = 'true';
+    });
+
+    const setFaqOpen = (item, open) => {
+      const button = item.querySelector('.faq-question-button');
+      const panel = item.querySelector('.faq-answer-panel');
+      if (!button || !panel) return;
+
+      item.classList.toggle('is-open', open);
+      button.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    };
+
+    const setupFaqAccordions = () => {
+      const faqItems = [
+        ...document.querySelectorAll('.faq-qa-list > li'),
+        ...document.querySelectorAll('.faq-item'),
+        ...document.querySelectorAll('section[id^="faq-"] [class$="-guide-block"]')
+      ];
+
+      faqItems.forEach((item, index) => {
+        if (item.dataset.faqAccordion === 'true') return;
+
+        const heading = Array.from(item.children).find((child) => child.matches('h3, h4'));
+        if (!heading || heading.querySelector('.faq-question-button')) return;
+
+        const answerNodes = [];
+        let next = heading.nextSibling;
+        while (next) {
+          answerNodes.push(next);
+          next = next.nextSibling;
+        }
+
+        if (!answerNodes.some((node) => node.nodeType === Node.ELEMENT_NODE || node.textContent.trim())) return;
+
+        const questionId = 'faq-question-' + index + '-' + Math.random().toString(36).slice(2, 8);
+        const answerId = 'faq-answer-' + index + '-' + Math.random().toString(36).slice(2, 8);
+        const button = document.createElement('button');
+        const questionText = document.createElement('span');
+        const icon = document.createElement('span');
+        const panel = document.createElement('div');
+        const inner = document.createElement('div');
+
+        button.type = 'button';
+        button.className = 'faq-question-button';
+        button.id = questionId;
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-controls', answerId);
+
+        questionText.className = 'faq-question-text';
+        while (heading.firstChild) questionText.appendChild(heading.firstChild);
+
+        icon.className = 'faq-toggle-icon';
+        icon.setAttribute('aria-hidden', 'true');
+
+        panel.className = 'faq-answer-panel';
+        panel.id = answerId;
+        panel.setAttribute('role', 'region');
+        panel.setAttribute('aria-labelledby', questionId);
+        panel.setAttribute('aria-hidden', 'true');
+
+        inner.className = 'faq-answer-inner';
+        answerNodes.forEach((node) => inner.appendChild(node));
+        panel.appendChild(inner);
+
+        button.appendChild(questionText);
+        button.appendChild(icon);
+        heading.appendChild(button);
+        item.appendChild(panel);
+
+        item.classList.add('faq-accordion-item');
+        item.dataset.faqAccordion = 'true';
+
+        button.addEventListener('click', () => {
+          const shouldOpen = !item.classList.contains('is-open');
+          const group = item.closest('.faq-qa-list, .faq-list, section[id^="faq-"]');
+          if (group) {
+            group.querySelectorAll('.faq-accordion-item.is-open').forEach((openItem) => {
+              if (openItem !== item) setFaqOpen(openItem, false);
+            });
+          }
+          setFaqOpen(item, shouldOpen);
+        });
+      });
+
+      document.querySelectorAll('.faq-qa-list, .faq-list, section[id^="faq-"]').forEach((group) => {
+        if (group.dataset.faqDefaultOpen === 'true') return;
+
+        const firstItem = group.querySelector('.faq-accordion-item');
+        if (!firstItem) return;
+
+        setFaqOpen(firstItem, true);
+        group.dataset.faqDefaultOpen = 'true';
+      });
+    };
+
+    setupFaqAccordions();
+
+    const revealSelectors = [
+      '.hero-content',
+      '.hero-feature',
+      '.section-title',
+      '.card',
+      '.blog-card',
+      '.location-card',
+      '.step',
+      '.mission-point',
+      '.what-do-item',
+      '.team-member',
+      '.solar-calc-panel',
+      '.solar-calc-stat',
+      '.contact-info',
+      '.form-wrap',
+      '.article-section',
+      '.faq-item',
+      '.faq-accordion-item',
+      '.next-content-block',
+      '.google-review-card',
+      '.google-review-trust',
+      '.discover-services-box'
+    ].join(',');
+
+    const revealItems = Array.from(document.querySelectorAll(revealSelectors));
+    revealItems.forEach((element, index) => {
+      if (element.classList.contains('next-reveal')) return;
+      element.classList.add('next-reveal');
+      element.style.setProperty('--next-delay', Math.min(index % 5, 4) * 55 + 'ms');
+    });
+
+    if (!('IntersectionObserver' in window)) {
+      revealItems.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    revealItems.forEach((element) => observer.observe(element));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ready, { once: true });
+  } else {
+    ready();
+  }
+})();
