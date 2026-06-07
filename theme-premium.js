@@ -195,6 +195,241 @@
   }
 })();
 
+(function premiumMobileNavigation() {
+  const ready = () => {
+    const button = document.querySelector('.mobile-menu-btn');
+    const drawer = document.querySelector('#mobileDrawer, .mobile-drawer');
+    if (!button || !drawer) return;
+
+    const panel = drawer.querySelector('.mobile-drawer-panel');
+    const head = drawer.querySelector('.mobile-drawer-head');
+    const menu = drawer.querySelector('.mobile-drawer-menu');
+    const overlay = drawer.querySelector('.mobile-drawer-overlay');
+    const closeButton = drawer.querySelector('.mobile-drawer-close');
+
+    const setDrawerInert = (isInert) => {
+      try {
+        drawer.inert = isInert;
+      } catch (_err) {}
+
+      if (isInert) drawer.setAttribute('inert', '');
+      else drawer.removeAttribute('inert');
+    };
+
+    const closeMenu = (restoreFocus = true) => {
+      if (!document.body.classList.contains('mobile-menu-active')) return;
+
+      document.body.classList.remove('mobile-menu-active');
+      drawer.setAttribute('aria-hidden', 'true');
+      button.setAttribute('aria-expanded', 'false');
+      setDrawerInert(true);
+
+      if (restoreFocus && drawer.contains(document.activeElement)) {
+        button.focus({ preventScroll: true });
+      }
+    };
+
+    const openMenu = () => {
+      document.body.classList.add('mobile-menu-active');
+      drawer.setAttribute('aria-hidden', 'false');
+      button.setAttribute('aria-expanded', 'true');
+      setDrawerInert(false);
+
+      if (panel) panel.scrollTop = 0;
+      window.setTimeout(() => {
+        const target = closeButton || drawer.querySelector('a[href], button');
+        if (target) target.focus({ preventScroll: true });
+      }, 120);
+    };
+
+    const toggleMenu = () => {
+      if (document.body.classList.contains('mobile-menu-active')) closeMenu();
+      else openMenu();
+    };
+
+    if (!button.querySelector('.mobile-menu-lines')) {
+      button.innerHTML = [
+        '<span class="mobile-menu-lines" aria-hidden="true"><span></span><span></span><span></span></span>',
+        '<span class="mobile-menu-label">Menu</span>'
+      ].join('');
+    }
+
+    if (drawer.id) button.setAttribute('aria-controls', drawer.id);
+    drawer.setAttribute('aria-hidden', document.body.classList.contains('mobile-menu-active') ? 'false' : 'true');
+    button.setAttribute('aria-expanded', document.body.classList.contains('mobile-menu-active') ? 'true' : 'false');
+    if (!document.body.classList.contains('mobile-menu-active')) setDrawerInert(true);
+
+    if (head && !head.querySelector('.mobile-drawer-brand')) {
+      const brand = document.createElement('div');
+      brand.className = 'mobile-drawer-brand';
+      brand.innerHTML = [
+        '<span class="mobile-drawer-brand-mark" aria-hidden="true">S</span>',
+        '<span class="mobile-drawer-brand-copy"><strong>Shashi Solar</strong><small>Clean energy menu</small></span>'
+      ].join('');
+      head.insertBefore(brand, closeButton || head.firstChild);
+    }
+
+    if (menu) {
+      const serviceDefs = [
+        { match: 'on-grid-solar-system', label: 'On Grid Solar System', href: 'on-grid-solar-system.html' },
+        { match: 'hybrid-solar-system', label: 'Hybrid Solar System', href: 'hybrid-solar-system.html' },
+        { match: 'solar-atta-chakki', label: 'Solar Atta Chakki', href: 'solar-atta-chakki.html' }
+      ];
+
+      if (!menu.querySelector('.mobile-services-item')) {
+        const topLevelItems = Array.from(menu.children).filter((child) => child.matches('li'));
+        const serviceItems = serviceDefs
+          .map((service) => topLevelItems.find((item) => {
+            const link = item.querySelector('a[href]');
+            return link && (link.getAttribute('href') || '').includes(service.match);
+          }))
+          .filter(Boolean);
+
+        const homeItem = topLevelItems.find((item) => {
+          const link = item.querySelector('a[href]');
+          const href = link ? link.getAttribute('href') || '' : '';
+          return href.includes('index.html') || href === './' || href === '/';
+        });
+
+        const servicesItem = document.createElement('li');
+        servicesItem.className = 'mobile-services-item';
+
+        const currentPath = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        const isServicePage = serviceDefs.some((service) => currentPath.includes(service.match));
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'mobile-services-toggle';
+        toggle.setAttribute('aria-expanded', isServicePage ? 'true' : 'false');
+        toggle.innerHTML = '<span>Services</span>';
+
+        const submenu = document.createElement('ul');
+        submenu.className = 'mobile-services-submenu';
+        submenu.setAttribute('aria-label', 'Solar services');
+
+        serviceDefs.forEach((service) => {
+          const originalItem = serviceItems.find((item) => {
+            const link = item.querySelector('a[href]');
+            return link && (link.getAttribute('href') || '').includes(service.match);
+          });
+          const originalLink = originalItem ? originalItem.querySelector('a[href]') : null;
+          const link = originalLink ? originalLink.cloneNode(true) : document.createElement('a');
+
+          link.href = originalLink ? originalLink.getAttribute('href') : service.href;
+          link.textContent = service.label;
+
+          const submenuItem = document.createElement('li');
+          submenuItem.appendChild(link);
+          submenu.appendChild(submenuItem);
+        });
+
+        servicesItem.classList.toggle('is-open', isServicePage);
+        servicesItem.appendChild(toggle);
+        servicesItem.appendChild(submenu);
+
+        if (homeItem && homeItem.nextSibling) {
+          menu.insertBefore(servicesItem, homeItem.nextSibling);
+        } else {
+          menu.insertBefore(servicesItem, menu.firstChild);
+        }
+
+        serviceItems.forEach((item) => item.remove());
+
+        toggle.addEventListener('click', () => {
+          const shouldOpen = !servicesItem.classList.contains('is-open');
+          servicesItem.classList.toggle('is-open', shouldOpen);
+          toggle.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+        });
+      }
+
+      if (!menu.querySelector('.mobile-drawer-cta')) {
+        const callItem = document.createElement('li');
+        callItem.className = 'mobile-drawer-cta mobile-drawer-cta-call';
+        callItem.innerHTML = '<a href="tel:+9194258575">Call Solar Expert</a>';
+
+        const whatsappItem = document.createElement('li');
+        whatsappItem.className = 'mobile-drawer-cta mobile-drawer-cta-whatsapp';
+        whatsappItem.innerHTML = '<a href="https://wa.me/9194258575?text=Hi%20Shashi%20Solar%20Energy%2C%20I%20want%20a%20solar%20quotation." target="_blank" rel="noopener">WhatsApp Inquiry</a>';
+
+        menu.appendChild(callItem);
+        menu.appendChild(whatsappItem);
+      }
+
+      Array.from(menu.querySelectorAll('a[href]')).forEach((link, index) => {
+        link.style.setProperty('--mobile-item-index', String(index));
+      });
+
+      menu.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href]');
+        if (!link) return;
+        closeMenu(false);
+      }, true);
+    }
+
+    if (drawer.dataset.premiumMobileBound !== 'true') {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        toggleMenu();
+      }, true);
+
+      if (overlay) {
+        overlay.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          closeMenu();
+        }, true);
+      }
+
+      if (closeButton) {
+        closeButton.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          closeMenu();
+        }, true);
+      }
+
+      document.addEventListener('keydown', (event) => {
+        if (!document.body.classList.contains('mobile-menu-active')) return;
+
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeMenu();
+          return;
+        }
+
+        if (event.key !== 'Tab' || !panel) return;
+
+        const focusable = Array.from(panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+          .filter((element) => element.offsetParent !== null);
+        if (!focusable.length) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }, true);
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1080) closeMenu(false);
+      }, { passive: true });
+
+      drawer.dataset.premiumMobileBound = 'true';
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ready, { once: true });
+  } else {
+    ready();
+  }
+})();
+
 (function nextStyleEnhancements() {
   const ready = () => {
     document.documentElement.classList.add('next-ready');
